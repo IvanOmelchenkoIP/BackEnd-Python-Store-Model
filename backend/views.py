@@ -1,13 +1,7 @@
 from flask import jsonify, request
 
 from backend import app
-from backend.users import Users
-from backend.categories import Categories
-from backend.records import Records
-
-records = Records()
-categories = Categories()
-users = Users()
+from backend.storages import users, categories, records
 
 @app.post("/newuser")
 def create_user():

@@ -1,14 +1,12 @@
-from datetime import datetime
-import uuid
-
 from flask import jsonify, request
 
 from backend import app
 from backend.users import Users
+from backend.categories import Categories
+from backend.records import Records
 
-records = []
-categories = []
-
+records = Records()
+categories = Categories()
 users = Users()
 
 @app.post("/newuser")
@@ -19,30 +17,14 @@ def create_user():
 
 @app.post("/newcategory")
 def create_category():
-    category_data = request.get_json()
-    category_id = uuid.uuid4()
-    category = {
-        "category_id": category_id, 
-        "category_name": category_data["category_name"]
-        }
-    categories.append(category)
-    res = {"status": "OK", "category": category}
+    category_res = categories.add(request.get_json())
+    res = {"status": "OK", "category": category_res}
     return jsonify(res)
 
 @app.post("/newrecord")
 def create_record():
-    record_data = request.get_json()
-    record_id = uuid.uuid4()
-    time = datetime.now()
-    record = {
-        "record_id": record_id, 
-        "user_id": record_data["user_id"], 
-        "category_id": record_data["category_id"], 
-        "time": time, 
-        "sum": record_data["sum"]
-        }
-    records.append(record)
-    res = {"status": "OK", "record": record}
+    record_res = records.add(request.get_json())
+    res = {"status": "OK", "record": record_res}
     return jsonify(res)
 
 @app.route("/categories")

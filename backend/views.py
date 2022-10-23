@@ -1,25 +1,36 @@
+from flask import jsonify, request
 from backend import app
 
-@app.route("/newuser", methods = ["POST"])
+users = []
+categories = []
+records = []
+
+@app.post("/newuser")
 def create_user():
-    pass
+    user_data = request.get_json()
+    users.append(user_data)
+    return "OK"
 
-@app.route("/newcategory", methods = ["POST"])
+@app.post("/newcategory")
 def create_category():
-    pass
+    category_data = request.get_json()
+    categories.append(category_data)
+    return "OK"
 
-@app.route("/newrecord", methods = ["POST"])
+@app.post("/newrecord")
 def create_record():
-    pass
+    record_data = request.get_json()
+    records.append(record_data)
+    return "OK"
 
 @app.route("/categories")
 def get_categories():
-    pass
+    return jsonify(categories)
 
 @app.route("/userrecords")
 def get_records_by_user():
-    pass
+    return jsonify(records)
 
 @app.route("/categoryrecords")
 def get_records_by_category():
-    pass
+    return jsonify(records)

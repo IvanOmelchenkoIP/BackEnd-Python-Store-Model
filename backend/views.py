@@ -1,23 +1,20 @@
 from datetime import datetime
-from unicodedata import name
 import uuid
-from flask import jsonify, request
-from backend import app
 
-users = []
-categories = []
+from flask import jsonify, request
+
+from backend import app
+from backend.users import Users
+
 records = []
+categories = []
+
+users = Users()
 
 @app.post("/newuser")
 def create_user():
-    user_data = request.get_json()
-    user_id = uuid.uuid4()
-    user = {
-        "user_id": user_id, 
-        "user_name": user_data["user_name"]
-        }
-    users.append(user)
-    res = {"status": "OK", "user": user}
+    user_res = users.add(request.get_json())
+    res = {"status": "OK", "user": user_res}
     return jsonify(res)
 
 @app.post("/newcategory")

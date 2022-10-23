@@ -17,7 +17,8 @@ def create_user():
         "user_name": user_data["user_name"]
         }
     users.append(user)
-    return jsonify(user)
+    res = {"status": "OK", "user": user}
+    return jsonify(res)
 
 @app.post("/newcategory")
 def create_category():
@@ -28,7 +29,8 @@ def create_category():
         "category_name": category_data["category_name"]
         }
     categories.append(category)
-    return jsonify(category)
+    res = {"status": "OK", "category": category}
+    return jsonify(res)
 
 @app.post("/newrecord")
 def create_record():
@@ -43,7 +45,8 @@ def create_record():
         "sum": record_data["sum"]
         }
     records.append(record)
-    return jsonify(record)
+    res = {"status": "OK", "record": record}
+    return jsonify(res)
 
 @app.route("/categories")
 def get_categories():

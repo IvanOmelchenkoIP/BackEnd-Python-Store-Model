@@ -1,3 +1,5 @@
+from unicodedata import name
+import uuid
 from flask import jsonify, request
 from backend import app
 
@@ -8,8 +10,10 @@ records = []
 @app.post("/newuser")
 def create_user():
     user_data = request.get_json()
-    users.append(user_data)
-    return "OK"
+    user_id = uuid.uuid4()
+    user = {"id": user_id, "user_name": user_data["user_name"]}
+    users.append(user)
+    return jsonify(user)
 
 @app.post("/newcategory")
 def create_category():

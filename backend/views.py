@@ -27,4 +27,6 @@ def get_categories():
 
 @app.route("/records")
 def get_records():
-    return jsonify(records)
+    user_id = request.args.get("user_id")
+    category_id = request.args.get("category_id")
+    return jsonify(records.get_records(user_id, category_id))

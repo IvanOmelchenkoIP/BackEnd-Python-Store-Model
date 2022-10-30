@@ -1,5 +1,5 @@
 import uuid
-import datetime
+from datetime import datetime
 
 class Records:
     def __init__(self):
@@ -12,11 +12,20 @@ class Records:
             "record_id": record_id, 
             "user_id": record_data["user_id"], 
             "category_id": record_data["category_id"], 
-            "time": record_time, 
-            "sum": record_data["sum"]
+            "record_time": record_time, 
+            "record_sum": record_data["record_sum"]
         }
         self.records.append(record)
         return record
 
     def get_records(self, user_id, category_id):
-        pass
+        if user_id == None:
+            return self.records
+        
+        selected_by_user = []
+        for element in self.records:
+            print(element)
+            if element["user_id"] == user_id:
+                selected_by_user.append(element)
+
+        return selected_by_user

@@ -6,7 +6,7 @@ class Records:
         self.records = []
 
     def add(self, record_data):
-        record_id = uuid.uuid4()
+        record_id = uuid.uuid4().int
         record_time = datetime.now()
         record = {
             "record_id": record_id, 
@@ -24,8 +24,7 @@ class Records:
         
         selected_by_user = []
         for element in self.records:
-            print(element)
-            if element["user_id"] == user_id:
+            if int(element["user_id"]) == int(user_id):
                 selected_by_user.append(element)
 
         return selected_by_user

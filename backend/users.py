@@ -5,7 +5,7 @@ class Users:
         self.users = []
 
     def add(self, user_data):
-        user_id = uuid.uuid4()
+        user_id = uuid.uuid4().int
         user = {
             "user_id": user_id, 
             "user_name": user_data["user_name"]

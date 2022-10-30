@@ -5,7 +5,7 @@ class Categories:
         self.categories = []
 
     def add(self, category_data):
-        category_id = uuid.uuid4()
+        category_id = uuid.uuid4().int
         category = {
             "category_id": category_id, 
             "category_name": category_data["category_name"]

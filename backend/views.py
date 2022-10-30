@@ -30,6 +30,11 @@ def create_record():
     return jsonify(res)
 
 
+@app.route("/users")
+def get_users():
+    return jsonify(users.get_users())
+
+
 @app.route("/categories")
 def get_categories():
     return jsonify(categories.get_categories())

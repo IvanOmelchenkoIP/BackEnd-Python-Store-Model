@@ -19,12 +19,18 @@ class Records:
         return record
 
     def get_records(self, user_id, category_id):
-        if user_id == None:
-            return self.records
+        if user_id == None: return self.records 
         
-        selected_by_user = []
+        user_records = []
         for element in self.records:
             if int(element["user_id"]) == int(user_id):
-                selected_by_user.append(element)
+                user_records.append(element)
 
-        return selected_by_user
+        if category_id == None: return user_records 
+
+        category_records = []
+        for element in self.records:
+            if int(element["category_id"]) == int(category_id):
+                category_records.append(element)
+
+        return category_records

@@ -1,6 +1,6 @@
 FROM python:3.10.5-slim
 
-ENV FLASK_APP=<backend>
+ENV FLASK_APP=backend
 
 COPY requirements.txt /opt
 

@@ -23,7 +23,7 @@ def create_record():
 
 @app.route("/categories")
 def get_categories():
-    return jsonify(categories)
+    return jsonify(categories.get_categories())
 
 @app.route("/userrecords")
 def get_records_by_user():

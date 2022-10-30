@@ -10,5 +10,8 @@ class Categories:
             "category_id": category_id, 
             "category_name": category_data["category_name"]
             }
-        self.users.append(category)
+        self.categories.append(category)
         return category
+
+    def get_categories(self):
+        return self.categories

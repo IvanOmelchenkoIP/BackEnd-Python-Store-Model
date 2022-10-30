@@ -16,3 +16,6 @@ class Users:
         
         self.users.append(user)
         return user
+
+    def get_users(self):
+        return self.users

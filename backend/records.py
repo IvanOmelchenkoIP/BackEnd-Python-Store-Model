@@ -17,3 +17,6 @@ class Records:
         }
         self.records.append(record)
         return record
+
+    def get_records(self, user_id, category_id):
+        pass

@@ -1,6 +1,8 @@
 import uuid
 from datetime import datetime
 
+from backend.utils import select
+
 class Records:
     def __init__(self):
         self.records = []
@@ -21,16 +23,10 @@ class Records:
     def get_records(self, user_id, category_id):
         if user_id == None: return self.records 
         
-        user_records = []
-        for element in self.records:
-            if int(element["user_id"]) == int(user_id):
-                user_records.append(element)
-
+        attribute = "user_id"
+        user_records = select(self.records, attribute, user_id)
         if category_id == None: return user_records 
-
-        category_records = []
-        for element in self.records:
-            if int(element["category_id"]) == int(category_id):
-                category_records.append(element)
-
+        
+        attribute = "category_id"
+        category_records = select(self.records, attribute, category_id)
         return category_records

@@ -9,6 +9,9 @@ class CategoriesStorage:
         category_id = uuid.uuid4().int
         category_name = category_data["category_name"]
 
+        if category_name == None: 
+            return {"err": "When creating a new category, a category_name must be specified!"}
+
         category = {
             "category_id": category_id,
             "category_name": category_name

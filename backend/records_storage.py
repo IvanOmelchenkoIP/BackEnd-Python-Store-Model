@@ -15,11 +15,11 @@ class RecordsStorage:
         record_time = datetime.now()
         record_sum = record_data["record_sum"]
 
-        compare_attribute = "user_id"
-        if contains(users, compare_attribute, user_id) == False:
+        if user_id == None or category_id == None or record_sum == None:
+            return {"err": "When creating a new record, user_id, category_id and record_sum must be specified!"}
+        if contains(users, "user_id", user_id) == False:
             return {"err": "Can only add record for existing users with user_id!"}
-        compare_attribute = "category_id"
-        if contains(categories, compare_attribute, category_id) == False:
+        if contains(categories, "category_id", category_id) == False:
             return {"err": "Can only add record for existing category with category_id!"}
 
         record = {

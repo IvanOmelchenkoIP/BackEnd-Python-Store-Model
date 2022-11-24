@@ -6,11 +6,13 @@ from backend.storages.storages import categories, users, records
 from backend.resources.schemas import RecordSchema
 from backend.utils.utils import contains
 
-blp = Blueprint("records", __name__,
-                description="Blueprint for operations on records")
+blp = Blueprint(
+    "record", __name__,
+    description="Blueprint for operations on records"
+)
 
 
-@blp.route("/category")
+@blp.route("/record")
 class Records(MethodView):
     @blp.arguments(RecordSchema)
     def post(self, record_data):

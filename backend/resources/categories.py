@@ -6,8 +6,10 @@ from backend.storages.storages import categories
 
 from backend.resources.schemas import CategorySchema
 
-blp = Blueprint("category", __name__,
-                description="Blueprint for operations on categories")
+blp = Blueprint(
+    "category", __name__,
+    description="For operations on categories"
+)
 
 
 @blp.route("/category")
@@ -19,4 +21,4 @@ class Categories(MethodView):
         return jsonify({"status": "OK", "user": category_res})
 
     def get(self):
-        return jsonify(categories.get_users())
+        return jsonify(categories.get_categories())

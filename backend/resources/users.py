@@ -6,8 +6,10 @@ from backend.storages.storages import users
 
 from backend.resources.schemas import UserSchema
 
-blp = Blueprint("user", __name__,
-                description="Blueprint for operations on users")
+blp = Blueprint(
+    "user", __name__,
+    description="For operations on users"
+)
 
 
 @blp.route("/user")

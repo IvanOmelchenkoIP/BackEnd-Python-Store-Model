@@ -13,12 +13,10 @@ blp = Blueprint("category", __name__,
 @blp.route("/category")
 class Categories(MethodView):
     @blp.arguments(CategorySchema)
-    def post(self):
-        category_res = categories.add(request.get_json())
-        if "err" in category_res:
-            abort(400, category_res["err"])
-        res = {"status": "OK", "user": category_res}
-        return jsonify(res)
+    def post(self, category_data):
+        category_name = category_data["category_name"]
+        category_res = categories.add(category_name)
+        return jsonify({"status": "OK", "user": category_res})
 
     def get(self):
         return jsonify(categories.get_users())

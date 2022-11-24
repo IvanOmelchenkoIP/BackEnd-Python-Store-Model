@@ -13,12 +13,10 @@ blp = Blueprint("user", __name__,
 @blp.route("/user")
 class Users(MethodView):
     @blp.arguments(UserSchema)
-    def post(self):
-        user_res = users.add(request.get_json())
-        if "err" in user_res:
-            abort(400, user_res["err"])
-        res = {"status": "OK", "user": user_res}
-        return jsonify(res)
+    def post(self, user_data):
+        user_name = user_data["user_name"]
+        user_res = users.add(user_name)
+        return jsonify({"status": "OK", "user": user_res})
 
     def get(self):
         return jsonify(users.get_users())

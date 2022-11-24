@@ -1,7 +1,7 @@
 import uuid
 
 
-class Users:
+class UsersStorage:
     def __init__(self):
         self.users = []
 

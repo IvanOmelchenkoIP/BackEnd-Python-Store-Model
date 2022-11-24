@@ -1,9 +1,9 @@
-from backend.users import Users
-from backend.categories import Categories
-from backend.records import Records
+from backend.users_storage import UsersStorage
+from backend.categories_storage import CategoriesStorage
+from backend.records_storage import RecordsStorage
 
-users = Users()
+users = UsersStorage()
 
-categories = Categories()
+categories = CategoriesStorage()
 
-records = Records()
+records = RecordsStorage()

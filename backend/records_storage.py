@@ -4,7 +4,7 @@ from datetime import datetime
 from backend.utils import contains, select
 
 
-class Records:
+class RecordsStorage:
     def __init__(self):
         self.records = []
 

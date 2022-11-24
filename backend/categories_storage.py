@@ -1,7 +1,7 @@
 import uuid
 
 
-class Categories:
+class CategoriesStorage:
     def __init__(self):
         self.categories = []
 

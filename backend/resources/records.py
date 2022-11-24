@@ -4,7 +4,9 @@ from flask_smorest import Blueprint, abort
 
 from backend.storages.storages import categories, users, records
 
-blp = Blueprint("records", __name__, description = "Blueprint for operations on records")
+blp = Blueprint("records", __name__,
+                description="Blueprint for operations on records")
+
 
 @blp.route("/category")
 class Records(MethodView):

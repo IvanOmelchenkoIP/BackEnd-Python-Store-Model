@@ -4,7 +4,9 @@ from flask_smorest import Blueprint, abort
 
 from backend.storages.storages import categories
 
-blp = Blueprint("category", __name__, description = "Blueprint for operations on categories")
+blp = Blueprint("category", __name__,
+                description="Blueprint for operations on categories")
+
 
 @blp.route("/category")
 class Categories(MethodView):

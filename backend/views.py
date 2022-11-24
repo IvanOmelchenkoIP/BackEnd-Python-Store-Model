@@ -1,8 +1,5 @@
-#from flask import abort
-#from flask import jsonify, request
 from flask_smorest import Api
 from backend import app
-#from backend.storages.storages import users, categories, records
 
 from backend.resources.users import blp as UsersBlueprint
 from backend.resources.categories import blp as CategoriesBlueprint

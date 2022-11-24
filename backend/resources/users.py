@@ -4,12 +4,15 @@ from flask_smorest import Blueprint, abort
 
 from backend.storages.storages import users
 
+from backend.resources.schemas import UserSchema
+
 blp = Blueprint("user", __name__,
                 description="Blueprint for operations on users")
 
 
 @blp.route("/user")
 class Users(MethodView):
+    @blp.arguments(UserSchema)
     def post(self):
         user_res = users.add(request.get_json())
         if "err" in user_res:

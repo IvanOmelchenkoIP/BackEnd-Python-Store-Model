@@ -4,12 +4,15 @@ from flask_smorest import Blueprint, abort
 
 from backend.storages.storages import categories, users, records
 
+from backend.resources.schemas import RecordSchema
+
 blp = Blueprint("records", __name__,
                 description="Blueprint for operations on records")
 
 
 @blp.route("/category")
 class Records(MethodView):
+    @blp.arguments(RecordSchema)
     def post(self):
         user_list = users.get_users()
         category_list = categories.get_categories()

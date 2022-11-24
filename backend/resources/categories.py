@@ -4,12 +4,15 @@ from flask_smorest import Blueprint, abort
 
 from backend.storages.storages import categories
 
+from backend.resources.schemas import CategorySchema
+
 blp = Blueprint("category", __name__,
                 description="Blueprint for operations on categories")
 
 
 @blp.route("/category")
 class Categories(MethodView):
+    @blp.arguments(CategorySchema)
     def post(self):
         category_res = categories.add(request.get_json())
         if "err" in category_res:

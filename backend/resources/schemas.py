@@ -11,6 +11,11 @@ class CategorySchema(Schema):
     category_name = fields.Str(required=True)
 
 
+class RecordRequestSchema(Schema):
+    user_id = fields.Str()
+    category_id = fields.Str()
+
+
 class RecordSchema(Schema):
     record_id = fields.Str(dump_default=True)
     user_id = fields.Str(required=True)

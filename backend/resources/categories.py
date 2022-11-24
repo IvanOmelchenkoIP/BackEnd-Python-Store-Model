@@ -15,13 +15,14 @@ blp = Blueprint(
 @blp.route("/category")
 class Categories(MethodView):
     @blp.arguments(CategorySchema)
+    @blp.response(200, CategorySchema)
     def post(self, category_data):
         category_name = category_data["category_name"]
         if contains(categories.get_categories(), "category_name", category_name):
             abort(404, message="The category already exists!")
 
-        category_res = categories.add(category_name)
-        return jsonify({"status": "OK", "user": category_res})
+        return jsonify(categories.add(category_name))
 
+    @blp.response(200, CategorySchema(many=True))
     def get(self):
         return jsonify(categories.get_categories())

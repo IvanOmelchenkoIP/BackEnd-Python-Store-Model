@@ -22,9 +22,8 @@ class RecordsStorage:
     def get_records(self, user_id, category_id):
         if user_id == None:
             return self.records
-
-        user_records = select(self.records, "user_id", user_id)
+        selected = select(self.records, "user_id", user_id)
         if category_id == None:
-            return user_records
-        category_records = select(self.records, "category_id", category_id)
-        return category_records
+            return selected
+        selected = select(selected, "category_id", category_id)
+        return selected

@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime
 
-from backend.utils import contains, select
+from backend.utils.utils import contains, select
 
 
 class RecordsStorage:

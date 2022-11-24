@@ -3,8 +3,8 @@ from flask import jsonify, request
 from flask_smorest import Blueprint, abort
 
 from backend.storages.storages import users
-
 from backend.resources.schemas import UserSchema
+from backend.utils.utils import contains
 
 blp = Blueprint(
     "user", __name__,
@@ -17,6 +17,9 @@ class Users(MethodView):
     @blp.arguments(UserSchema)
     def post(self, user_data):
         user_name = user_data["user_name"]
+        if contains(users.get_users(), "user_name", user_name):
+            abort(404, message="User with that name already exists!")
+            
         user_res = users.add(user_name)
         return jsonify({"status": "OK", "user": user_res})
 

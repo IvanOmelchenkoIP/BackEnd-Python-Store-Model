@@ -19,9 +19,9 @@ class Records(MethodView):
         user_id = record_data["user_id"]
         category_id = record_data["category_id"]
         record_sum = record_data["record_sum"]
-        if contains(users.get_users(), "user_id", user_id) == False:
+        if not contains(users.get_users(), "user_id", user_id):
             abort(404, message="Can only add record for existing user_id!")
-        if contains(categories.get_categories(), "category_id", category_id) == False:
+        if not contains(categories.get_categories(), "category_id", category_id):
             abort(404, message="Can only add record for existing category_id!")
 
         record_res = records.add(user_id, category_id, record_sum)

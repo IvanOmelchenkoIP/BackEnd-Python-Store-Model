@@ -1,7 +1,8 @@
-from flask import MethodView, jsonify, request
+from flask.views import MethodView
+from flask import jsonify, request
 from flask_smorest import Blueprint, abort
 
-from backend.storages import users
+from backend.storages.storages import users
 
 blp = Blueprint("user", __name__, description = "Blueprint for operations on users")
 

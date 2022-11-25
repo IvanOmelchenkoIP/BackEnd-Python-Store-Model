@@ -1,4 +1,4 @@
-#from flask import jsonify
+# from flask import jsonify
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
 from sqlalchemy.exc import IntegrityError
@@ -6,10 +6,10 @@ from sqlalchemy.exc import IntegrityError
 from backend.models.db import db
 from backend.models.users import UserModel
 
-from backend.resources.schemas import UserSchema
+from backend.resources.schemas import UserSchema, UserCurrencySchema, UserRequestSchema
 
-#from backend.storages.storages import users
-#from backend.utils.utils import contains
+# from backend.storages.storages import users
+# from backend.utils.utils import contains
 
 blp = Blueprint(
     "user", __name__, description="Blueprint for operations on users"
@@ -21,6 +21,17 @@ class User(MethodView):
     @blp.response(200, UserSchema)
     def get(self, user_id):
         return UserModel.query.get_or_404(user_id)
+
+    @blp.arguments(UserCurrencySchema)
+    @blp.response(200, UserSchema)
+    def post(self, user_data, user_id):
+        user = UserModel.query.get_or_404(user_id)
+        try:
+            user.user_currency = user_data.get("user_currency")
+            db.session.commit()
+        except IntegrityError:
+            abort(404, message="Error occured updating user default currency!")
+        return user
 
 
 @blp.route("/user")

@@ -7,6 +7,14 @@ class UserSchema(Schema):
     user_currency = fields.Int()
 
 
+class UserRequestSchema(Schema):
+    user_id = fields.Int(required=True)
+
+
+class UserCurrencySchema(Schema):
+    user_currency = fields.Int(required=True)
+
+
 class CategorySchema(Schema):
     category_id = fields.Int(dump_default=True)
     category_name = fields.Str(required=True)

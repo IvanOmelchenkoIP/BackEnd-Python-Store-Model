@@ -7,7 +7,7 @@ class RecordModel(db.Model):
 
     record_id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(
-        db.String(256), db.ForeignKey("users.user_id"), unique=False, nullable=False
+        db.Integer, db.ForeignKey("users.user_id"), unique=False, nullable=False
     )
     category_id = db.Column(
         db.Integer, db.ForeignKey("categories.category_id"), unique=False, nullable=False

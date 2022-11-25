@@ -21,6 +21,6 @@ class RecordsStorage:
         if user_id == None:
             return self.records
         selected = select(self.records, "user_id", user_id)
-        if category_id == None:
-            return selected
-        return select(selected, "category_id", category_id)
+        if category_id:
+            selected = select(selected, "category_id", category_id)
+        return selected

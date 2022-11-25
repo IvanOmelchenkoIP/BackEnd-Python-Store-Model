@@ -1,14 +1,15 @@
+#from flask import jsonify
 from flask.views import MethodView
-from flask import jsonify
 from flask_smorest import Blueprint, abort
 from sqlalchemy.exc import IntegrityError
 
 from backend.models.db import db
 from backend.models.categories import CategoryModel
 
-from backend.storages.storages import categories
 from backend.resources.schemas import CategorySchema
-from backend.utils.utils import contains
+
+#from backend.storages.storages import categories
+#from backend.utils.utils import contains
 
 blp = Blueprint(
     "category", __name__, description="Blueprint for operations on categories"
@@ -33,5 +34,5 @@ class Categories(MethodView):
 
     @blp.response(200, CategorySchema(many=True))
     def get(self):
-        #return jsonify(categories.get_categories())
+        # return jsonify(categories.get_categories())
         return CategoryModel.query.all()

@@ -1,6 +1,10 @@
 from flask.views import MethodView
 from flask import jsonify
 from flask_smorest import Blueprint, abort
+from sqlalchemy.exc import IntegrityError
+
+from backend.models.db import db
+from backend.models.categories import CategoryModel
 
 from backend.storages.storages import categories
 from backend.resources.schemas import CategorySchema
@@ -16,9 +20,16 @@ class Categories(MethodView):
     @blp.arguments(CategorySchema)
     @blp.response(200, CategorySchema)
     def post(self, category_data):
-        if contains(categories.get_categories(), "category_name", category_data["category_name"]):
+        # if contains(categories.get_categories(), "category_name", category_data["category_name"]):
+        #    abort(404, message="The category already exists!")
+        # return jsonify(categories.add(category_data))
+        category = CategoryModel(**category_data)
+        try:
+            db.session.add(category)
+            db.session.commit()
+        except IntegrityError:
             abort(404, message="The category already exists!")
-        return jsonify(categories.add(category_data))
+        return category
 
     @blp.response(200, CategorySchema(many=True))
     def get(self):

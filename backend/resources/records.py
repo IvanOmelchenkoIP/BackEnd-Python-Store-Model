@@ -20,7 +20,7 @@ class Record(MethodView):
     @blp.response(200, RecordSchema)
     def get(self, record_id):
         record = RecordModel.query.get_or_404(record_id)
-        print(record.user_id)
+        print(record.users.user_currency)
         return RecordModel.query.get_or_404(record_id)
 
 

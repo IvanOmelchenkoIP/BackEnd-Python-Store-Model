@@ -8,13 +8,11 @@ class RecordsStorage:
     def __init__(self):
         self.records = []
 
-    def add(self, user_id, category_id, record_sum):
+    def add(self, record_data):
         record = {
             "record_id": uuid.uuid4().int,
-            "user_id": user_id,
-            "category_id": category_id,
             "record_time": datetime.now(),
-            "record_sum": record_sum
+            **record_data
         }
         self.records.append(record)
         return record
@@ -25,5 +23,4 @@ class RecordsStorage:
         selected = select(self.records, "user_id", user_id)
         if category_id == None:
             return selected
-        selected = select(selected, "category_id", category_id)
-        return selected
+        return select(selected, "category_id", category_id)

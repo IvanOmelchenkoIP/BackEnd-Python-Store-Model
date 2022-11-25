@@ -33,4 +33,5 @@ class Users(MethodView):
 
     @blp.response(200, UserSchema(many=True))
     def get(self):
-        return jsonify(users.get_users())
+        # return jsonify(users.get_users())
+        return UserModel.query.all()

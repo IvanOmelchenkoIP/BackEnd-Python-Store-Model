@@ -33,4 +33,5 @@ class Categories(MethodView):
 
     @blp.response(200, CategorySchema(many=True))
     def get(self):
-        return jsonify(categories.get_categories())
+        #return jsonify(categories.get_categories())
+        return CategoryModel.query.all()

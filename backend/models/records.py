@@ -15,5 +15,5 @@ class RecordModel(db.Model):
     record_date = db.Column(db.TIMESTAMP, server_default=func.now())
     record_sum = db.Column(db.Float(precision=2), unique=False, nullable=False)
 
-    user = db.relationship("UserModel", back_populates="records")
-    category = db.relationship("CategoryModel", back_populates="records")
+    users = db.relationship("UserModel", back_populates="records")
+    categories = db.relationship("CategoryModel", back_populates="records")

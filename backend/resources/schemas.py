@@ -7,10 +7,6 @@ class UserSchema(Schema):
     user_currency = fields.Int()
 
 
-class UserRequestSchema(Schema):
-    user_id = fields.Int(required=True)
-
-
 class UserCurrencySchema(Schema):
     user_currency = fields.Int(required=True)
 
@@ -31,6 +27,7 @@ class RecordSchema(Schema):
     category_id = fields.Int(required=True)
     record_sum = fields.Float(required=True)
     record_date = fields.DateTime(dump_default=True)
+    record_currency = fields.Int()
 
 
 class CurrencySchema(Schema):

@@ -1,6 +1,4 @@
-from sqlalchemy import func
 from backend.models.db import db
-
 
 class CurrencyModel(db.Model):
     __tablename__ = "currencies"

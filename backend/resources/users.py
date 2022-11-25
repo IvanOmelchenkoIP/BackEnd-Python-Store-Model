@@ -6,7 +6,7 @@ from sqlalchemy.exc import IntegrityError
 from backend.models.db import db
 from backend.models.users import UserModel
 
-from backend.resources.schemas import UserSchema, UserCurrencySchema, UserRequestSchema
+from backend.resources.schemas import UserSchema, UserCurrencySchema
 
 # from backend.storages.storages import users
 # from backend.utils.utils import contains

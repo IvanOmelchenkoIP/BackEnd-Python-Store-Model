@@ -1,6 +1,5 @@
 from backend.models.db import db
 
-
 class CategoryModel(db.Model):
     __tablename__ = "categories"
 

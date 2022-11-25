@@ -1,6 +1,5 @@
 from backend.models.db import db
 
-
 class UserModel(db.Model):
     __tablename__ = "users"
 
@@ -10,7 +9,7 @@ class UserModel(db.Model):
         db.Integer, db.ForeignKey("currencies.currency_id"), unique=False
     )
 
-    currencies = db.relationship("CurrencyModel", back_populates="users")
     records = db.relationship(
         "RecordModel", back_populates="users", lazy="dynamic"
     )
+    currencies = db.relationship("CurrencyModel", back_populates="users")

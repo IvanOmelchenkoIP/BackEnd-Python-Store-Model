@@ -15,12 +15,13 @@ blp = Blueprint(
     "record", __name__, description="Blueprint for operations on records"
 )
 
-
-#@blp.route("/record/<string:record_id>")
-#class Record(MethodView):
-  #  @blp.response(200, RecordModel)
- #   def get(self, record_id):
-  #      return RecordModel.query.get_or_404(record_id)
+@blp.route("/record/<string:record_id>")
+class Record(MethodView):
+    @blp.response(200, RecordSchema)
+    def get(self, record_id):
+        record = RecordModel.query.get_or_404(record_id)
+        print(record.user_id)
+        return RecordModel.query.get_or_404(record_id)
 
 
 @blp.route("/record")

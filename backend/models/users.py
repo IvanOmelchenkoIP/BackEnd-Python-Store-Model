@@ -7,4 +7,6 @@ class UserModel(db.Model):
     user_id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(256), unique=True, nullable=False)
 
-    record = db.relationship("RecordModel", back_populates="users", lazy="dynamic")
+    record = db.relationship(
+        "RecordModel", back_populates="users", lazy="dynamic"
+    )

@@ -33,6 +33,21 @@ Create REST API app about cost accounting
 | date of creation |
 | sum              |
 
+## Laboratory Work 2 Task
+
+- Add data validation
+- Add error handling
+- Add ORM models
+- Add functionality by variant
+
+### Functionality By Variant
+
+Group number - IP-04
+
+04 mod 3 = 1
+
+**Variant 1.** Add currency
+
 ## Local Launch
 
 **Make sure that you have [Python](https://www.python.org/downloads/) installed (program was written in Python 3.10.5)**

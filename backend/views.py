@@ -15,10 +15,12 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db.init_app(app)
+
 api = Api(app)
 
 with app.app_context():
     db.create_all()
+    #db.drop_all()
 
 api.register_blueprint(UsersBlueprint)
 api.register_blueprint(CategoriesBlueprint)

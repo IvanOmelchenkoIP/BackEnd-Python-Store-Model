@@ -16,6 +16,13 @@ blp = Blueprint(
 )
 
 
+@blp.route("/category/<string:category_id>")
+class Category(MethodView):
+    @blp.response(200, CategoryModel)
+    def get(self, category_id):
+        return CategoryModel.query.get_or_404(category_id)
+
+
 @blp.route("/category")
 class Categories(MethodView):
     @blp.arguments(CategorySchema)

@@ -13,6 +13,13 @@ blp = Blueprint(
 )
 
 
+@blp.route("/currency/<string:currency_id>")
+class Currency(MethodView):
+    @blp.response(200, CurrencyModel)
+    def get(self, currency_id):
+        return CurrencyModel.query.get_or_404(currency_id)
+
+
 @blp.route("/currency")
 class Currency(MethodView):
     @blp.arguments(CurrencySchema)

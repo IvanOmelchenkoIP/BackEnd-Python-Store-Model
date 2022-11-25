@@ -7,7 +7,7 @@ class CategoriesStorage:
 
     def add(self, category_name):
         category = {
-            "category_id": str(uuid.uuid4().int),
+            "category_id": uuid.uuid4().int,
             "category_name": category_name
         }
         self.categories.append(category)

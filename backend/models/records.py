@@ -2,7 +2,7 @@ from sqlalchemy import func
 from backend.models.db import db
 
 
-class RecoedModel(db.Model):
+class RecordModel(db.Model):
     __tablname__ = "record"
 
     record_id = db.Column(db.Integer, primary_key=True)

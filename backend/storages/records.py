@@ -10,7 +10,7 @@ class RecordsStorage:
 
     def add(self, user_id, category_id, record_sum):
         record = {
-            "record_id": str(uuid.uuid4().int),
+            "record_id": uuid.uuid4().int,
             "user_id": user_id,
             "category_id": category_id,
             "record_time": datetime.now(),

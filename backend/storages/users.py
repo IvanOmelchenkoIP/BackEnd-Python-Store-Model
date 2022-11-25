@@ -7,7 +7,7 @@ class UsersStorage:
 
     def add(self, user_name):
         user = {
-            "user_id": str(uuid.uuid4().int),
+            "user_id": uuid.uuid4().int,
             "user_name": user_name
         }
         self.users.append(user)

@@ -1,7 +1,7 @@
 from flask import jsonify
 from flask_smorest import abort
 
-from backend.storages.db import categories, users, records
+from backend.storages.db import categories, users, records, currencies
 from backend.utils.utils import contains
 
 
@@ -12,7 +12,7 @@ class RecordsManagerStorage:
         if not contains(categories.get_categories(), "category_id", record_data["category_id"]):
             abort(404, message="Can only add record for existing category_id!")
         if "record_currency" in record_data:
-            if not contains(users.get_users(), "user_currency", record_data["record_currency"]):
+            if not contains(currencies.get_currencies(), "currency_id", record_data["record_currency"]):
                 abort(404, message="Can only add record for existing currency!")
         return jsonify(records.add(record_data, users.get_users()))
 

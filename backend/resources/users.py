@@ -1,16 +1,10 @@
-from flask import jsonify
-
 from flask.views import MethodView
-from flask_smorest import Blueprint, abort
-from sqlalchemy.exc import IntegrityError
-
-from backend.models.db import db
-from backend.models.users import UserModel
+from flask_smorest import Blueprint
 
 from backend.schemas.schemas import UserSchema, UserCurrencySchema
 
-from backend.storages.db import users, currencies
-from backend.utils.utils import contains
+from backend.managers.storages.managers import users_storage
+from backend.managers.models.managers import users_orm
 
 blp = Blueprint(
     "user", __name__, description="Blueprint for operations on users"
@@ -21,29 +15,15 @@ blp = Blueprint(
 class User(MethodView):
     @blp.response(200, UserSchema)
     def get(self, user_id):
-        #selected = users.get_user_by_id(user_id)
-        # if not selected:
-        #    abort(404, message="User does not exist!")
-        # return jsonify(selected[0])
-        return UserModel.query.get_or_404(user_id)
+        #user = users_storage.get_user_by_id(user_id)
+        user = users_orm.get_user_by_id(user_id)
+        return user
 
     @blp.arguments(UserCurrencySchema)
     @blp.response(200, UserSchema)
     def post(self, user_data, user_id):
-        # if not contains(currencies.get_currencies(), "currency_id", user_data["user_currency"]):
-        #    abort(404, "Can only add existing currency to user!")
-        # selected = users.set_user_currency(
-        #    user_id, user_data["user_currency"]
-        # )
-        # if not selected:
-        #    abort(404, message="User does not exist!")
-        # return jsonify(selected[0])
-        user = UserModel.query.get_or_404(user_id)
-        try:
-            user.user_currency = user_data.get("user_currency")
-            db.session.commit()
-        except IntegrityError:
-            abort(404, message="Error occured updating user default currency!")
+        #user = users_storage.set_user_currency(user_data, user_id)
+        user = users_orm.set_user_currency(user_data, user_id)
         return user
 
 
@@ -52,20 +32,12 @@ class Users(MethodView):
     @ blp.arguments(UserSchema)
     @ blp.response(200, UserSchema)
     def post(self, user_data):
-        # if contains(users.get_users(), "user_name", user_data["user_name"]):
-        #    abort(404, message="User with that name already exists!")
-        # if not contains(currencies.get_currencies(), "currency_id", user_data["user_currency"]):
-        #    abort(404, message="Can only add existing currency to user!")
-        # return jsonify(users.add(user_data))
-        user = UserModel(**user_data)
-        try:
-            db.session.add(user)
-            db.session.commit()
-        except IntegrityError:
-            abort(400, message="There was an error creating new user!")
+        #user = users_storage.add(user_data)
+        user = users_orm.add(user_data)
         return user
 
     @ blp.response(200, UserSchema(many=True))
     def get(self):
-        # return jsonify(users.get_users())
-        return UserModel.query.all()
+        #users = users_storage.get_users()
+        users = users_orm.get_users()
+        return users

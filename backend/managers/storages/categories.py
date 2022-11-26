@@ -8,7 +8,7 @@ from backend.utils.utils import contains
 class CategoriesManagerStorage:
     def add(self, category_data):
         if contains(categories.get_categories(), "category_name", category_data["category_name"]):
-            abort(404, message="The category already exists!")
+            abort(400, message="The category already exists!")
         return jsonify(categories.add(category_data))
 
     def get_categories(self):

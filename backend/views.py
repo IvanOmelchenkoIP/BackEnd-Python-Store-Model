@@ -20,11 +20,8 @@ api = Api(app)
 
 with app.app_context():
     db.create_all()
-    #db.drop_all()
 
 api.register_blueprint(CurrencyBlueprint)
 api.register_blueprint(UsersBlueprint)
 api.register_blueprint(RecordsBlueprint)
 api.register_blueprint(CategoriesBlueprint)
-
-

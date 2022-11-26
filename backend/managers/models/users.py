@@ -12,7 +12,9 @@ class UsersManagerORM:
             db.session.add(user)
             db.session.commit()
         except IntegrityError:
-            abort(400, message="There was an error creating new user!")
+            abort(
+                400, message="There was an error creating new user (user may already exist)!"
+            )
         return user
 
     def get_users(self):
@@ -27,5 +29,7 @@ class UsersManagerORM:
             user.user_currency = user_data.get("user_currency")
             db.session.commit()
         except IntegrityError:
-            abort(404, message="Error occured updating user default currency!")
+            abort(
+                404, message="There was an error updating user default currency (currency may not exist)!"
+            )
         return user

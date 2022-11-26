@@ -12,7 +12,9 @@ class CategoriesManagerORM:
             db.session.add(category)
             db.session.commit()
         except IntegrityError:
-            abort(404, message="There was an error creating new category!")
+            abort(
+                400, message="There was an error creating new  (category may already exist)!"
+            )
         return category
 
     def get_categories(self):

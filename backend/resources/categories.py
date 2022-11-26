@@ -7,9 +7,9 @@ from sqlalchemy.exc import IntegrityError
 from backend.models.db import db
 from backend.models.categories import CategoryModel
 
-from backend.resources.schemas import CategorySchema
+from backend.schemas.schemas import CategorySchema
 
-from backend.storages.storages import categories
+from backend.storages.db import categories
 from backend.utils.utils import contains
 
 blp = Blueprint(
@@ -41,7 +41,7 @@ class Categories(MethodView):
             db.session.add(category)
             db.session.commit()
         except IntegrityError:
-            abort(404, message="The category already exists!")
+            abort(404, message="There was an error creating new category!")
         return category
 
     @blp.response(200, CategorySchema(many=True))

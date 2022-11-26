@@ -4,7 +4,7 @@ from marshmallow import Schema, fields
 class UserSchema(Schema):
     user_id = fields.Int(dump_only=True)
     user_name = fields.Str(required=True)
-    user_currency = fields.Int()
+    user_currency = fields.Int(required=True)
 
 
 class UserCurrencySchema(Schema):

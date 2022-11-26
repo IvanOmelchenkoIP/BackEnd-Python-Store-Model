@@ -7,9 +7,9 @@ from sqlalchemy.exc import IntegrityError
 from backend.models.db import db
 from backend.models.users import UserModel
 
-from backend.resources.schemas import UserSchema, UserCurrencySchema
+from backend.schemas.schemas import UserSchema, UserCurrencySchema
 
-from backend.storages.storages import users, currencies
+from backend.storages.db import users, currencies
 from backend.utils.utils import contains
 
 blp = Blueprint(
@@ -54,16 +54,15 @@ class Users(MethodView):
     def post(self, user_data):
         # if contains(users.get_users(), "user_name", user_data["user_name"]):
         #    abort(404, message="User with that name already exists!")
-        # if "user_currency" in user_data:
-        #    if not contains(currencies.get_currencies(), "currency_id", user_data["user_currency"]):
-        #        abort(404, message="Can only add existing currency to user!")
+        # if not contains(currencies.get_currencies(), "currency_id", user_data["user_currency"]):
+        #    abort(404, message="Can only add existing currency to user!")
         # return jsonify(users.add(user_data))
         user = UserModel(**user_data)
         try:
             db.session.add(user)
             db.session.commit()
         except IntegrityError:
-            abort(404, message="User with that name already exists!")
+            abort(400, message="There was an error creating new user!")
         return user
 
     @ blp.response(200, UserSchema(many=True))

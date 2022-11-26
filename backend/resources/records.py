@@ -7,11 +7,11 @@ from sqlalchemy.exc import IntegrityError
 from backend.models.db import db
 from backend.models.records import RecordModel
 
-from backend.resources.schemas import RecordSchema, RecordRequestSchema
+from backend.schemas.schemas import RecordSchema, RecordRequestSchema
 
 from sqlalchemy import text
 
-from backend.storages.storages import categories, users, records
+from backend.storages.db import categories, users, records
 from backend.utils.utils import contains
 
 blp = Blueprint(
@@ -48,9 +48,7 @@ class Records(MethodView):
             db.session.add(record)
             db.session.commit()
         except IntegrityError:
-            abort(
-                404, message="Can only add record for existing user_id and category_id!"
-            )
+            abort(400, message="There was an error creating a new record!")
         return record
 
     @blp.arguments(RecordRequestSchema, location="query", as_kwargs=True)

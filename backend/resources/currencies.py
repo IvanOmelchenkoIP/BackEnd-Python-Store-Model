@@ -7,9 +7,9 @@ from sqlalchemy.exc import IntegrityError
 from backend.models.db import db
 from backend.models.currencies import CurrencyModel
 
-from backend.resources.schemas import CurrencySchema
+from backend.schemas.schemas import CurrencySchema
 
-from backend.storages.storages import currencies
+from backend.storages.db import currencies
 from backend.utils.utils import contains
 
 blp = Blueprint(
@@ -41,7 +41,7 @@ class Currency(MethodView):
             db.session.add(currency)
             db.session.commit()
         except IntegrityError:
-            abort(404, message="The category already exists!")
+            abort(400, message="There was an error creating a new currecy!")
         return currency
 
     @blp.response(200, CurrencySchema(many=True))

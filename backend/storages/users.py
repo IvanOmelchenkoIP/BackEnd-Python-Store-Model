@@ -12,8 +12,6 @@ class UsersStorage:
             "user_id": uuid.uuid4().int,
             **user_data
         }
-        if "user_currency" not in user:
-            user["user_currency"] = None
         self.users.append(user)
         return user
 

@@ -65,21 +65,21 @@ Clone git repository:
 
 Create virtual environment:
 
-_For Windows:_
+*For Windows:*_*
 
     py -3 -m venv env
 
-_For Linux:_
+*For Linux:*
 
     python3 -m venv env
 
 Launch virtual environment:
 
-_For Windows:_
+*For Windows:*
 
     .\env\scripts\activate
 
-_For Linux:_
+*For Linux:*
 
     source ./env/bin/activate
 
@@ -93,11 +93,11 @@ Deactivate virtual environment:
 
 Set FLASK_APP variable:
 
-_For Windows:_
+*For Windows:*
 
     set FLASK_APP=backend
 
-_For Linux:_
+*For Linux:*
 
     export FLASK_APP=backend
 
@@ -116,15 +116,17 @@ To run Dockerfile use following commands:
 
 To test the program you must use [Postman](https://www.postman.com/)
 
-Creating new user (_required - user_name_):
+#### Laboratory Work 1
+
+Creating new user (*required - user_name*):
 
     /newuser
 
-Creating new category (_required - category_name_):
+Creating new category (*required - category_name*):
 
     /newcategory
 
-Creating new record (_required - user_id, category_id, record_sum_):
+Creating new record (*required - user_id, category_id, record_sum*):
 
     /newrecord
 
@@ -142,10 +144,66 @@ Geting records:
     /records?user_id=<value>
     /records?user_id=<value>&category_id=<value>
 
+#### Laboratory Work 2
+
+Creating new currency (*required - currency_name*):
+
+    /currency
+
+Creating new user (*required - user_name, user_currency*):
+
+    /user
+
+Updating user default currency (*required - user_currency*):
+
+    /user/<currency_id_value>
+
+Creating new category (*required - category_name*):
+
+    /category
+
+Creating new record (*required - user_id, category_id, record_sum, not mandatory - record_currency*):
+
+    /record
+
+Getting currencies:
+
+    /currency
+
+Getting currency by id:
+
+    /currency/<currency_id_value>
+
+Getting users:
+
+    /user
+
+Getting user by id:
+
+    /user/<user_id_value>
+
+Getting categories:
+
+    /category
+
+Getting category by id:
+
+    /category/<category_id_value>
+
+Geting records:
+
+    /record
+    /record?user_id=<value>
+    /record?user_id=<value>&category_id=<value>
+
+Getting record by id:
+
+    /record/<record_id_value>
+
 ## Deployment
 
 [App on Heroku](https://backend-laboratory-works.herokuapp.com/) - index page shows NotFound, but response will be shown upon using any of the paths described earlier
 
 ### Process
 
-The app named baackend-laboratory-works was created on Heroku and then deployed using GitHub Actions (_see ./github/workflows/heroku-deploy.yml_)
+The app named baackend-laboratory-works was created on Heroku and then deployed using GitHub Actions (*see ./github/workflows/heroku-deploy.yml*)

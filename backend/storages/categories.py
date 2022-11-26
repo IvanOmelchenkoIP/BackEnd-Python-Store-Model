@@ -1,5 +1,7 @@
 import uuid
 
+from backend.utils.utils import select
+
 
 class CategoriesStorage:
     def __init__(self):
@@ -15,3 +17,6 @@ class CategoriesStorage:
 
     def get_categories(self):
         return self.categories
+
+    def get_category_by_id(self, category_id):
+        return select(self.categories, "category_id", category_id)

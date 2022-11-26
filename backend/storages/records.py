@@ -21,7 +21,7 @@ class RecordsStorage:
         self.records.append(record)
         return record
 
-    def get_records(self, user_id, category_id):
+    def get_records_by_user_categories(self, user_id, category_id):
         if user_id == None:
             return self.records
         selected = select(self.records, "user_id", user_id)

@@ -9,8 +9,6 @@ from backend.models.records import RecordModel
 
 from backend.schemas.schemas import RecordSchema, RecordRequestSchema
 
-from sqlalchemy import text
-
 from backend.storages.db import categories, users, records
 from backend.utils.utils import contains
 

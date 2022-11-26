@@ -1,47 +1,27 @@
-from flask import abort
-from flask import jsonify, request
-
+from backend.models.db import db
+from flask_smorest import Api
 from backend import app
-from backend.storages import users, categories, records
 
+from backend.resources.currencies import blp as CurrencyBlueprint
+from backend.resources.users import blp as UsersBlueprint
+from backend.resources.categories import blp as CategoriesBlueprint
+from backend.resources.records import blp as RecordsBlueprint
 
-@app.post("/newuser")
-def create_user():
-    user_res = users.add(request.get_json())
-    res = {"status": "OK", "user": user_res}
-    return jsonify(res)
+app.config["PROPAGATE_EXCEPTIONS"] = True
+app.config["API_TITLE"] = "Backend Labs"
+app.config["API_VERSION"] = "v1"
+app.config["OPENAPI_VERSION"] = "3.0.2"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
+db.init_app(app)
 
-@app.post("/newcategory")
-def create_category():
-    category_res = categories.add(request.get_json())
-    res = {"status": "OK", "category": category_res}
-    return jsonify(res)
+api = Api(app)
 
+with app.app_context():
+    db.create_all()
 
-@app.post("/newrecord")
-def create_record():
-    user_list = users.get_users()
-    category_list = categories.get_categories()
-    record_res = records.add(request.get_json(), user_list, category_list)
-    if "err" in record_res:
-        abort(400, record_res["err"])
-    res = {"status": "OK", "record": record_res}
-    return jsonify(res)
-
-
-@app.route("/users")
-def get_users():
-    return jsonify(users.get_users())
-
-
-@app.route("/categories")
-def get_categories():
-    return jsonify(categories.get_categories())
-
-
-@app.route("/records")
-def get_records():
-    user_id = request.args.get("user_id")
-    category_id = request.args.get("category_id")
-    return jsonify(records.get_records(user_id, category_id))
+api.register_blueprint(CurrencyBlueprint)
+api.register_blueprint(UsersBlueprint)
+api.register_blueprint(RecordsBlueprint)
+api.register_blueprint(CategoriesBlueprint)

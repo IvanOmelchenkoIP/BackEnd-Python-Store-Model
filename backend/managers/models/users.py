@@ -42,7 +42,5 @@ class UsersManagerORM:
             user.user_currency = user_data["user_currency"]
             db.session.commit()
         except IntegrityError:
-            abort(
-                404, message="Can only add existing currency to user!"
-            )
+            abort(404, message="Can only add existing currency to user!")
         return user

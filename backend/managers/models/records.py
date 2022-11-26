@@ -3,10 +3,32 @@ from sqlalchemy.exc import IntegrityError
 
 from backend.models.db import db
 from backend.models.records import RecordModel
+from backend.models.users import UserModel
+from backend.models.categories import CategoryModel
+from backend.models.currencies import CurrencyModel
 
 
 class RecordsManagerORM:
     def add(self, record_data):
+        if not db.session.scalar(
+            UserModel.query.filter_by(
+                user_id=record_data["user_id"]
+            )
+        ):
+            abort(404, message="Can only add existing users to record!")
+        if not db.session.scalar(
+            CategoryModel.query.filter_by(
+                category_id=record_data["category_id"]
+            )
+        ):
+            abort(404, message="Can only add existing categories to record!")
+        if "record_currency" in record_data:
+            if not db.session.scalar(
+                CurrencyModel.query.filter_by(
+                    currency_id=record_data["record_currency"]
+                )
+            ):
+                abort(404, message="Can only add existing currency to record!")
         record = RecordModel(**record_data)
         try:
             db.session.add(record)

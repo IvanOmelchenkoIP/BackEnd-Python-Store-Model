@@ -8,6 +8,8 @@ from backend.models.records import RecordModel
 
 from backend.resources.schemas import RecordSchema, RecordRequestSchema
 
+from sqlalchemy import text
+
 #from backend.storages.storages import categories, users, records
 #from backend.utils.utils import contains
 
@@ -15,12 +17,11 @@ blp = Blueprint(
     "record", __name__, description="Blueprint for operations on records"
 )
 
+
 @blp.route("/record/<string:record_id>")
 class Record(MethodView):
     @blp.response(200, RecordSchema)
     def get(self, record_id):
-        record = RecordModel.query.get_or_404(record_id)
-        print(record.users.user_currency)
         return RecordModel.query.get_or_404(record_id)
 
 

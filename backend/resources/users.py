@@ -1,6 +1,7 @@
 # from flask import jsonify
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
+from sqlalchemy import select, text
 from sqlalchemy.exc import IntegrityError
 
 from backend.models.db import db
@@ -46,7 +47,6 @@ class Users(MethodView):
         try:
             db.session.add(user)
             db.session.commit()
-            print(user.user_id, user.user_name)
         except IntegrityError:
             abort(404, message="User with that name already exists!")
         return user

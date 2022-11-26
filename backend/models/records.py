@@ -1,5 +1,16 @@
-from sqlalchemy import func, text
+from sqlalchemy import func
+
 from backend.models.db import db
+
+
+def set_default_currency(context):
+    user_id = context.get_current_parameters()["user_id"]
+    default_currency = db.session.scalar(
+        db.select(db.text("users.user_currency"))
+          .select_from(db.text("users"))
+          .where(db.text("users.user_id==" + str(user_id)))
+    )
+    return default_currency
 
 
 class RecordModel(db.Model):
@@ -25,14 +36,8 @@ class RecordModel(db.Model):
     record_sum = db.Column(db.Float(precision=2), unique=False, nullable=False)
 
     record_currency = db.Column(
-        db.Integer, db.ForeignKey("users.user_currency"), unique=False
+        db.Integer, db.ForeignKey("users.user_currency"), unique=False, default=set_default_currency
     )
     currency = db.relationship(
         "UserModel", back_populates="record_currency", foreign_keys=record_currency
     )
-
-    #users = db.relationship("UserModel", back_populates="records")
-    #categories = db.relationship("CategoryModel", back_populates="records")
-
-    #user = db.relationship("UserModel", back_populates="records", foreign_keys=[user_id])
-    #currency = db.relationship("UserModel", back_populates="records", foreign_keys=[record_currency])

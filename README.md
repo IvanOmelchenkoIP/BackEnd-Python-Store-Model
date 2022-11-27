@@ -40,7 +40,7 @@ Create REST API app about cost accounting
 - Add ORM models
 - Add functionality by variant
 
-### Functionality By Variant
+### Functionality By Variant:
 
 Group number - IP-04
 
@@ -48,12 +48,39 @@ Group number - IP-04
 
 **Variant 1.** Add currency
 
-#### Currency
+#### Currency:
 
 - Add Currency entity
 - Default currency can be added for every user
 - When creating a record, a currency can be set, but it is not mandatory
 - If a record was not set when creating a record, a default currency of a user will be used
+
+#### Resulting Data Structure Used In Solution:
+
+| Currency      |
+| ------------- |
+| id            |
+| currency name |
+
+| User        |
+| ----------- |
+| id          |
+| user name   |
+| currency id |
+
+| Category      |
+| ------------- |
+| id            |
+| category name |
+
+| Record           |
+| ---------------- |
+| id               |
+| user id          |
+| category id      |
+| date of creation |
+| sum              |
+| currency id      |
 
 ## Local Launch
 

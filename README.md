@@ -218,4 +218,4 @@ The app named backend-laboratory-works was created on Heroku and then deployed u
 
 The app was deployed on [render.com](https://render.com/):
 
-![render-deploy](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/readme/render-deploy.png)
+![render-deploy](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/readme/render-deploy.png)

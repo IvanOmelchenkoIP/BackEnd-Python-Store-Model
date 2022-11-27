@@ -243,6 +243,8 @@ The app named backend-laboratory-works was created on Heroku and then deployed u
 
 #### Process
 
-The app was deployed on [render.com](https://render.com/):
+The app was deployed on [render.com](https://render.com/) by creating a Web Service with the following parameters:
 
 ![render-deploy](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/readme/render-deploy.png)
+
+The app uses [Free Web Service](https://render.com/docs/free) program

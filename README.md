@@ -92,7 +92,7 @@ Clone git repository:
 
 Create virtual environment:
 
-*For Windows:*_*
+*For Windows:*
 
     py -3 -m venv env
 

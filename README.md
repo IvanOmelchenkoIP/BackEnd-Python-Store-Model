@@ -156,7 +156,7 @@ Creating new user (*required - user_name, user_currency*):
 
 Updating user default currency (*required - user_currency*):
 
-    /user/<currency_id_value>
+    /user/<user_id_value>
 
 Creating new category (*required - category_name*):
 

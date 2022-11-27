@@ -202,8 +202,20 @@ Getting record by id:
 
 ## Deployment
 
+### Heroku
+
 [App on Heroku](https://backend-laboratory-works.herokuapp.com/) - index page shows NotFound, but response will be shown upon using any of the paths described earlier
 
-### Process
+#### Process
 
-The app named baackend-laboratory-works was created on Heroku and then deployed using GitHub Actions (*see ./github/workflows/heroku-deploy.yml*)
+The app named backend-laboratory-works was created on Heroku and then deployed using GitHub Actions (*see ./github/workflows/heroku-deploy.yml*)
+
+### Render
+
+[App on Render](https://backend-labs.onrender.com/) - index page shows NotFound, but response will be shown upon using any of the paths described earlier
+
+#### Process
+
+The app was deployed on [render.com](https://render.com/):
+
+![render-deploy](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/readme/render-deploy.png)

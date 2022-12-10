@@ -9,6 +9,7 @@ class UserModel(db.Model):
     user_currency = db.Column(
         db.Integer, db.ForeignKey("currencies.currency_id"), unique=False, onupdate="CASCADE"
     )
+    user_passwd = db.Column(db.String, nullable=False)
 
     record_user = db.relationship(
         "RecordModel", back_populates="user", foreign_keys="RecordModel.user_id", lazy="dynamic"

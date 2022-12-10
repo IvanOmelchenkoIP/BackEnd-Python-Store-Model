@@ -28,7 +28,7 @@ class User(MethodView):
 
 
 @ blp.route("/user")
-class Users(MethodView):
+class UserResistrator:
     @ blp.arguments(UserSchema)
     @ blp.response(200, UserSchema)
     def post(self, user_data):
@@ -36,6 +36,9 @@ class Users(MethodView):
         user = users_orm.add(user_data)
         return user
 
+
+@ blp.route("/users")
+class Users(MethodView):
     @ blp.response(200, UserSchema(many=True))
     def get(self):
         #users = users_storage.get_users()

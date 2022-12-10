@@ -1,5 +1,6 @@
 from flask_smorest import abort
 from sqlalchemy.exc import IntegrityError
+from passlib.hash import pbkdf2_sha256
 
 from backend.models.db import db
 from backend.models.users import UserModel
@@ -14,7 +15,11 @@ class UsersManagerORM:
             )
         ):
             abort(404, message="Can only add existing currency to user!")
-        user = UserModel(**user_data)
+        user = UserModel(
+            user_name = user_data["user_name"],
+            user_currency = user_data["user_currency"],
+            user_passwd = pbkdf2_sha256.hash(user_data["user_passwd"])
+            )
         try:
             db.session.add(user)
             db.session.commit()

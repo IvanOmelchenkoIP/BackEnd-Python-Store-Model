@@ -1,4 +1,5 @@
 from flask.views import MethodView
+from flask_jwt_extended import jwt_required
 from flask_smorest import Blueprint
 
 from backend.schemas.schemas import CategorySchema
@@ -12,6 +13,7 @@ blp = Blueprint(
 
 
 @blp.route("/category/<string:category_id>")
+@jwt_required()
 class Category(MethodView):
     @blp.response(200, CategorySchema)
     def get(self, category_id):
@@ -21,6 +23,7 @@ class Category(MethodView):
 
 
 @blp.route("/category")
+@jwt_required()
 class Categories(MethodView):
     @blp.arguments(CategorySchema)
     @blp.response(200, CategorySchema)

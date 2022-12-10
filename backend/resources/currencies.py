@@ -1,4 +1,5 @@
 from flask.views import MethodView
+from flask_jwt_extended import jwt_required
 from flask_smorest import Blueprint
 
 from backend.schemas.schemas import CurrencySchema
@@ -12,6 +13,7 @@ blp = Blueprint(
 
 
 @blp.route("/currency/<string:currency_id>")
+@jwt_required()
 class Currency(MethodView):
     @blp.response(200, CurrencySchema)
     def get(self, currency_id):
@@ -21,6 +23,7 @@ class Currency(MethodView):
 
 
 @blp.route("/currency")
+@jwt_required()
 class Currency(MethodView):
     @blp.arguments(CurrencySchema)
     @blp.response(200, CurrencySchema)

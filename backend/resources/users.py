@@ -1,4 +1,5 @@
 from flask.views import MethodView
+from flask_jwt_extended import jwt_required
 from flask_smorest import Blueprint
 
 from backend.schemas.schemas import UserSchema, UserCurrencySchema, UserLoginSchema, UserTokenSchema
@@ -12,6 +13,7 @@ blp = Blueprint(
 
 
 @blp.route("/user/<string:user_id>")
+@jwt_required()
 class User(MethodView):
     @blp.response(200, UserSchema)
     def get(self, user_id):
@@ -27,17 +29,17 @@ class User(MethodView):
         return user
 
 
-@ blp.route("/register")
+@blp.route("/register")
 class UserResistrator:
-    @ blp.arguments(UserSchema)
-    @ blp.response(200, UserSchema)
+    @blp.arguments(UserSchema)
+    @blp.response(200, UserSchema)
     def post(self, user_data):
         #user = users_storage.add(user_data)
         user = users_orm.register(user_data)
         return user
 
 
-@ blp.route("/login")
+@blp.route("/login")
 class UserLogin:
     @blp.arguments(UserLoginSchema)
     @blp.response(200, UserTokenSchema)
@@ -46,7 +48,8 @@ class UserLogin:
         return access_token
 
 
-@ blp.route("/users")
+@blp.route("/users")
+@jwt_required()
 class Users(MethodView):
     @ blp.response(200, UserSchema(many=True))
     def get(self):

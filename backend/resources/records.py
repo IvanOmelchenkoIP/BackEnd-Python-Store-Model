@@ -1,4 +1,5 @@
 from flask.views import MethodView
+from flask_jwt_extended import jwt_required
 from flask_smorest import Blueprint
 
 from backend.schemas.schemas import RecordSchema, RecordRequestSchema
@@ -12,6 +13,7 @@ blp = Blueprint(
 
 
 @blp.route("/record/<string:record_id>")
+@jwt_required()
 class Record(MethodView):
     @blp.response(200, RecordSchema)
     def get(self, record_id):
@@ -21,6 +23,7 @@ class Record(MethodView):
 
 
 @blp.route("/record")
+@jwt_required()
 class Records(MethodView):
     @blp.arguments(RecordSchema)
     @blp.response(200, RecordSchema)

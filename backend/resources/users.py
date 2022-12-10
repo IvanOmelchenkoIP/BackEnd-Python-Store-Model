@@ -1,7 +1,7 @@
 from flask.views import MethodView
 from flask_smorest import Blueprint
 
-from backend.schemas.schemas import UserSchema, UserCurrencySchema
+from backend.schemas.schemas import UserSchema, UserCurrencySchema, UserLoginSchema, UserTokenSchema
 
 from backend.managers.storages.managers import users_storage
 from backend.managers.models.managers import users_orm
@@ -27,14 +27,23 @@ class User(MethodView):
         return user
 
 
-@ blp.route("/user")
+@ blp.route("/register")
 class UserResistrator:
     @ blp.arguments(UserSchema)
     @ blp.response(200, UserSchema)
     def post(self, user_data):
         #user = users_storage.add(user_data)
-        user = users_orm.add(user_data)
+        user = users_orm.register(user_data)
         return user
+
+
+@ blp.route("/login")
+class UserLogin:
+    @blp.arguments(UserLoginSchema)
+    @blp.response(200, UserTokenSchema)
+    def post(self, user_data):
+        access_token = users_orm.login(user_data)
+        return access_token
 
 
 @ blp.route("/users")

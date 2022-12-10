@@ -8,6 +8,16 @@ class UserSchema(Schema):
     user_passwd = fields.Str(required=True)
 
 
+class UserLoginSchema(Schema):
+    user_name = fields.Str(required=True)
+    user_passwd = fields.Str(required=True)
+
+
+class UserTokenSchema(Schema):
+    user_id = fields.Int(required=True)
+    access_token = fields.Str(required=True)
+
+
 class UserCurrencySchema(Schema):
     user_currency = fields.Int(required=True)
 

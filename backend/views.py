@@ -1,3 +1,6 @@
+import os
+
+from flask_jwt_extended import JWTManager
 from backend.models.db import db
 from flask_smorest import Api
 from backend import app
@@ -13,10 +16,13 @@ app.config["API_VERSION"] = "v1"
 app.config["OPENAPI_VERSION"] = "3.0.2"
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
 
 db.init_app(app)
 
 api = Api(app)
+
+jwt = JWTManager(app)
 
 with app.app_context():
     db.create_all()

@@ -4,9 +4,9 @@ from flask_smorest import abort
 from sqlalchemy.exc import IntegrityError
 from passlib.hash import pbkdf2_sha256
 
-from backend.models.db import db
-from backend.models.users import UserModel
-from backend.models.currencies import CurrencyModel
+from backend.data.db.models.db import db
+from backend.data.db.models.users import UserModel
+from backend.data.db.models.currencies import CurrencyModel
 
 
 class LoginORM:

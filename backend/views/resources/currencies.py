@@ -2,10 +2,10 @@ from flask.views import MethodView
 from flask_jwt_extended import jwt_required
 from flask_smorest import Blueprint
 
-from backend.schemas.schemas import CurrencySchema
+from backend.views.schemas.schemas import CurrencySchema
 
-from backend.managers.storages.managers import currencies_storage
-from backend.managers.models.managers import currencies_orm
+from backend.data.managers.storages.managers import currencies_storage
+from backend.data.managers.models.managers import currencies_orm
 
 blp = Blueprint(
     "currency", __name__, description="Blueprint for operations on currencies"

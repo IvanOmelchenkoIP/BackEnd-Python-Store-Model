@@ -1,6 +1,6 @@
 from sqlalchemy import func
 
-from backend.models.db import db
+from backend.data.db.models.db import db
 
 
 def set_default_currency(context):

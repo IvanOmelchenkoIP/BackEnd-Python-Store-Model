@@ -1,11 +1,11 @@
 from flask_smorest import abort
 from sqlalchemy.exc import IntegrityError
 
-from backend.models.db import db
-from backend.models.records import RecordModel
-from backend.models.users import UserModel
-from backend.models.categories import CategoryModel
-from backend.models.currencies import CurrencyModel
+from backend.data.db.models.db import db
+from backend.data.db.models.records import RecordModel
+from backend.data.db.models.users import UserModel
+from backend.data.db.models.categories import CategoryModel
+from backend.data.db.models.currencies import CurrencyModel
 
 
 class RecordsManagerORM:

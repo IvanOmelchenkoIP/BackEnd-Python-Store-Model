@@ -1,8 +1,8 @@
 from flask_smorest import abort
 from sqlalchemy.exc import IntegrityError
 
-from backend.models.db import db
-from backend.models.categories import CategoryModel
+from backend.data.db.models.db import db
+from backend.data.db.models.categories import CategoryModel
 
 
 class CategoriesManagerORM:

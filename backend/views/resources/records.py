@@ -2,10 +2,10 @@ from flask.views import MethodView
 from flask_jwt_extended import jwt_required
 from flask_smorest import Blueprint
 
-from backend.schemas.schemas import RecordSchema, RecordRequestSchema
+from backend.views.schemas.schemas import RecordSchema, RecordRequestSchema
 
-from backend.managers.storages.managers import records_storage
-from backend.managers.models.managers import records_orm
+from backend.data.managers.storages.managers import records_storage
+from backend.data.managers.models.managers import records_orm
 
 blp = Blueprint(
     "record", __name__, description="Blueprint for operations on records"

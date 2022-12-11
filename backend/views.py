@@ -1,15 +1,17 @@
 import os
 
-from flask import jsonify
 from flask_jwt_extended import JWTManager
-from backend.models.db import db
+
+from flask import jsonify
 from flask_smorest import Api
+
+from backend.data.db.models.db import db
 from backend import app
 
-from backend.resources.currencies import blp as CurrencyBlueprint
-from backend.resources.users import blp as UsersBlueprint
-from backend.resources.categories import blp as CategoriesBlueprint
-from backend.resources.records import blp as RecordsBlueprint
+from backend.views.resources.currencies import blp as CurrencyBlueprint
+from backend.views.resources.users import blp as UsersBlueprint
+from backend.views.resources.categories import blp as CategoriesBlueprint
+from backend.views.resources.records import blp as RecordsBlueprint
 
 app.config["PROPAGATE_EXCEPTIONS"] = True
 app.config["API_TITLE"] = "Backend Labs"
@@ -25,6 +27,7 @@ api = Api(app)
 
 jwt = JWTManager(app)
 jwt.init_app(app)
+
 
 @jwt.expired_token_loader
 def expired_token_callback(jwt_header, jwt_payload):
@@ -60,7 +63,7 @@ def missing_token_callback(error):
 with app.app_context():
     db.drop_all()
     db.create_all()
-    
+
 api.register_blueprint(CurrencyBlueprint)
 api.register_blueprint(UsersBlueprint)
 api.register_blueprint(RecordsBlueprint)

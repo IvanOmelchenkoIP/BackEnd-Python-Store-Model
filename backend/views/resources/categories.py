@@ -2,10 +2,10 @@ from flask.views import MethodView
 from flask_jwt_extended import jwt_required
 from flask_smorest import Blueprint
 
-from backend.schemas.schemas import CategorySchema
+from backend.views.schemas.schemas import CategorySchema
 
-from backend.managers.storages.managers import categories_storage
-from backend.managers.models.managers import categories_orm
+from backend.data.managers.storages.managers import categories_storage
+from backend.data.managers.models.managers import categories_orm
 
 blp = Blueprint(
     "category", __name__, description="Blueprint for operations on categories"

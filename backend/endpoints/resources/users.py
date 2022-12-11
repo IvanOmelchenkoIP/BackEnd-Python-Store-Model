@@ -4,8 +4,8 @@ from flask_smorest import Blueprint
 
 from backend.endpoints.schemas.schemas import UserSchema, UserCurrencySchema, UserLoginSchema, UserTokenSchema
 
-from backend.data.managers.storages.managers import users_manager, login_manager
-#from backend.data.managers.models.managers import login_manager, users_manager
+#from backend.data.managers.storages.managers import users_manager, login_manager
+from backend.data.managers.models.managers import login_manager, users_manager
 
 blp = Blueprint(
     "user", __name__, description="Blueprint for operations on users"

@@ -4,8 +4,8 @@ from flask_smorest import Blueprint
 
 from backend.endpoints.schemas.schemas import RecordSchema, RecordRequestSchema
 
-from backend.data.managers.storages.managers import records_manager
-#from backend.data.managers.models.managers import records_manager
+#from backend.data.managers.storages.managers import records_manager
+from backend.data.managers.models.managers import records_manager
 
 blp = Blueprint(
     "record", __name__, description="Blueprint for operations on records"

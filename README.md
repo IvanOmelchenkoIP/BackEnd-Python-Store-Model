@@ -82,6 +82,11 @@ Group number - IP-04
 | sum              |
 | currency id      |
 
+## Laboratory Work 3 Task
+
+- Create registration and login endpoints
+- Protect other endpoints so that only logged in users have access to them
+
 ## Local Launch
 
 **Make sure that you have [Python](https://www.python.org/downloads/) installed (program was written in Python 3.10.5)**
@@ -132,6 +137,31 @@ Launch virtual environment again (described before). Run the app:
 
     flask run –host 0.0.0.0 -p 5005
 
+### Local Launch of Lab 3
+
+The same as the previous labs, but add JWT_SECRET_KEY after setting FLASK_APP, for this:
+
+Access python console in your terminal by typing: 
+
+    python
+
+Proceed with the two following commands:
+
+    import secrets
+    secrets.SystemRandom().getRandBits(128)
+
+You should receive a result and set it to JWT_SECRET_KEY as following:
+
+*For Windows:*
+
+    set JWT_SECRET_KEY=<your key>
+
+*For Linux:*
+
+    export JWT_SECRET_KEY=<your key>
+
+After that you can launch virtual environment and an the app   
+
 ### Dockerfile
 
 To run Dockerfile use following commands:
@@ -142,6 +172,8 @@ To run Dockerfile use following commands:
 ### Testing
 
 To test the program you must use [Postman](https://www.postman.com/)
+
+For Laboratory Work 3 use [Insomnia](https://insomnia.rest/)
 
 #### Laboratory Work 1
 
@@ -224,6 +256,66 @@ Geting records:
     /record?user_id=<value>&category_id=<value>
 
 Getting record by id:
+
+    /record/<record_id_value>
+
+#### Laboratory Work 3 
+
+Registering a user (*required - user_name, user_currency, user_password*):
+
+    /register
+
+Logging in (*required - user_name, user_password*):
+
+    /login
+
+Creating new currency (*required - currency_name, user has to be logged in*):
+
+    /currency
+
+Updating user default currency (*required - user_currency, user has to be logged in*):
+
+    /user/<user_id_value>
+
+Creating new category (*required - category_name, user has to be logged in*):
+
+    /category
+
+Creating new record (*required - user_id, category_id, record_sum, optional - record_currency, user has to be logged in*):
+
+    /record
+
+Getting currencies (*optional - being logged in*):
+
+    /currency
+
+Getting currency by id (*user has to be logged in*):
+
+    /currency/<currency_id_value>
+
+Getting users (*user has to be logged in*):
+
+    /user
+
+Getting user by id (*user has to be logged in*):
+
+    /user/<user_id_value>
+
+Getting categories (*user has to be logged in*):
+
+    /category
+
+Getting category by id (*user has to be logged in*):
+
+    /category/<category_id_value>
+
+Geting records (*user has to be logged in*):
+
+    /record
+    /record?user_id=<value>
+    /record?user_id=<value>&category_id=<value>
+
+Getting record by id (*user has to be logged in*):
 
     /record/<record_id_value>
 

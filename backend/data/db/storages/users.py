@@ -10,7 +10,9 @@ class UsersStorage:
     def add(self, user_data):
         user = {
             "user_id": uuid.uuid4().int,
-            **user_data
+            "user_name": user_data["user_name"],
+            "user_currency": user_data["user_currency"],
+            "user_password": user_data["user_password"]
         }
         self.users.append(user)
         return user
@@ -20,6 +22,9 @@ class UsersStorage:
 
     def get_user_by_id(self, user_id):
         return select(self.users, "user_id", user_id)
+
+    def get_user_by_name(self, user_name):
+        return select(self.users, "user_name", user_name)
 
     def set_user_currency(self, user_id, user_currency):
         selected = select(self.users, "user_id", user_id)

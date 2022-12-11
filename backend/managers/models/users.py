@@ -20,7 +20,7 @@ class UsersManagerORM:
         user = UserModel(
             user_name=user_data["user_name"],
             user_currency=user_data["user_currency"],
-            user_passwd=pbkdf2_sha256.hash(user_data["user_passwd"])
+            user_password=pbkdf2_sha256.hash(user_data["user_password"])
         )
         try:
             db.session.add(user)
@@ -33,7 +33,7 @@ class UsersManagerORM:
 
     def login(self, user_data):
         user = UserModel.query.filter_by(user_name=user_data["user_name"])
-        if user and pbkdf2_sha256.verify(user_data["password"], user.user_passwd):
+        if user and pbkdf2_sha256.verify(user_data["user_password"], user.user_password):
             access_token = create_access_token(identity=user.user_id)
             return jsonify({"user_id": user.user_id, "access_token": access_token})
         else:

@@ -30,7 +30,7 @@ class User(MethodView):
 
 
 @blp.route("/register")
-class UserResistrator:
+class UserResistrator(MethodView):
     @blp.arguments(UserSchema)
     @blp.response(200, UserSchema)
     def post(self, user_data):
@@ -40,7 +40,7 @@ class UserResistrator:
 
 
 @blp.route("/login")
-class UserLogin:
+class UserLogin(MethodView):
     @blp.arguments(UserLoginSchema)
     @blp.response(200, UserTokenSchema)
     def post(self, user_data):

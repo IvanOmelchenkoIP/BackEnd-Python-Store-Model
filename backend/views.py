@@ -59,7 +59,7 @@ def missing_token_callback(error):
 
 with app.app_context():
     db.create_all()
-
+    
 api.register_blueprint(CurrencyBlueprint)
 api.register_blueprint(UsersBlueprint)
 api.register_blueprint(RecordsBlueprint)

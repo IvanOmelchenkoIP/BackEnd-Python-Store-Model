@@ -23,7 +23,7 @@ class Currency(MethodView):
 
 
 @blp.route("/currency")
-@jwt_required()
+#@jwt_required()
 class Currency(MethodView):
     @blp.arguments(CurrencySchema)
     @blp.response(200, CurrencySchema)

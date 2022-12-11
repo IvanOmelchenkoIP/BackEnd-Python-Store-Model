@@ -1,11 +1,13 @@
 from flask import jsonify
 from flask_smorest import abort
 
+from backend.data.managers.base import CategoriesManager
+
 from backend.data.db.storages.db import categories
 from backend.utils.utils import contains
 
 
-class CategoriesManagerStorage:
+class CategoriesManagerStorage(CategoriesManager):
     def add(self, category_data):
         if contains(categories.get_categories(), "category_name", category_data["category_name"]):
             abort(400, message="The category already exists!")

@@ -1,6 +1,8 @@
 from flask_smorest import abort
 from sqlalchemy.exc import IntegrityError
 
+from backend.data.managers.base import RecordsManager
+
 from backend.data.db.models.db import db
 from backend.data.db.models.records import RecordModel
 from backend.data.db.models.users import UserModel
@@ -8,7 +10,7 @@ from backend.data.db.models.categories import CategoryModel
 from backend.data.db.models.currencies import CurrencyModel
 
 
-class RecordsManagerORM:
+class RecordsManagerORM(RecordsManager):
     def add(self, record_data):
         if not db.session.scalar(
             UserModel.query.filter_by(
@@ -47,5 +49,5 @@ class RecordsManagerORM:
             query = query.filter_by(category_id=category_id)
         return query.all()
 
-    def get_records_by_id(self, record_id):
+    def get_record_by_id(self, record_id):
         return RecordModel.query.get_or_404(record_id)

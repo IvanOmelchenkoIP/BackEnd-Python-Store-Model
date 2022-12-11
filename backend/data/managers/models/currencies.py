@@ -1,11 +1,13 @@
 from flask_smorest import abort
 from sqlalchemy.exc import IntegrityError
 
+from backend.data.managers.base import CurrenciesManager
+
 from backend.data.db.models.db import db
 from backend.data.db.models.currencies import CurrencyModel
 
 
-class CurrenciesManagerORM:
+class CurrenciesManagerORM(CurrenciesManager):
     def add(self, currency_data):
         currency = CurrencyModel(**currency_data)
         try:

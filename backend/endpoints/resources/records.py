@@ -17,7 +17,7 @@ class Record(MethodView):
     @blp.response(200, RecordSchema)
     @jwt_required()
     def get(self, record_id):
-        record = records_manager.get_records_by_id(record_id)
+        record = records_manager.get_record_by_id(record_id)
         return record
 
 

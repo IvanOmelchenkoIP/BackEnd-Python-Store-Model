@@ -1,11 +1,13 @@
 from flask_smorest import abort
 from sqlalchemy.exc import IntegrityError
 
+from backend.data.managers.base import CategoriesManager
+
 from backend.data.db.models.db import db
 from backend.data.db.models.categories import CategoryModel
 
 
-class CategoriesManagerORM:
+class CategoriesManagerORM(CategoriesManager):
     def add(self, category_data):
         category = CategoryModel(**category_data)
         try:

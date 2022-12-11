@@ -1,11 +1,13 @@
 from flask import jsonify
 from flask_smorest import abort
 
+from backend.data.managers.base import CurrenciesManager
+
 from backend.data.db.storages.db import currencies
 from backend.utils.utils import contains
 
 
-class CurrenciesManagerStorage:
+class CurrenciesManagerStorage(CurrenciesManager):
     def add(self, currency_data):
         if contains(currencies.get_currencies(), "currency_name", currency_data["currency_name"]):
             abort(400, message="The currency already exists!")

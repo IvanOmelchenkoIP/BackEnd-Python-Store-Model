@@ -3,11 +3,13 @@ from flask_jwt_extended import create_access_token
 from flask_smorest import abort
 from passlib.hash import pbkdf2_sha256
 
+from backend.data.managers.base import LoginManager, UsersManager
+
 from backend.data.db.storages.db import users, currencies
 from backend.utils.utils import contains
 
 
-class LoginManagerStorage:
+class LoginManagerStorage(LoginManager):
     def register(self, user_data):
         if contains(users.get_users(), "user_name", user_data["user_name"]):
             abort(400, message="User with that name already exists!")
@@ -30,7 +32,7 @@ class LoginManagerStorage:
             )
 
 
-class UsersManagerStorage:
+class UsersManagerStorage(UsersManager):
     def get_users(self):
         return jsonify(users.get_users())
 

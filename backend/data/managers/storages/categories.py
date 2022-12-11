@@ -1,7 +1,7 @@
 from flask import jsonify
 from flask_smorest import abort
 
-from backend.storages.db import categories
+from backend.data.db.storages.db import categories
 from backend.utils.utils import contains
 
 

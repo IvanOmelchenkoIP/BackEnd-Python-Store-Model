@@ -7,7 +7,7 @@ class UserModel(db.Model):
     user_id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(256), unique=True, nullable=False)
     user_currency = db.Column(
-        db.Integer, db.ForeignKey("currencies.currency_id"), unique=False, onupdate="CASCADE"
+        db.Integer, db.ForeignKey("currencies.currency_id"), unique=False
     )
     user_password = db.Column(db.String, nullable=False)
 

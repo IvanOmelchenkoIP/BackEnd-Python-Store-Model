@@ -9,7 +9,7 @@ from backend.models.users import UserModel
 from backend.models.currencies import CurrencyModel
 
 
-class UsersManagerORM:
+class LoginORM:
     def register(self, user_data):
         if not db.session.scalar(
             CurrencyModel.query.filter_by(
@@ -32,7 +32,8 @@ class UsersManagerORM:
         return user
 
     def login(self, user_data):
-        user = db.session.scalar(UserModel.query.filter_by(user_name=user_data["user_name"]))
+        user = db.session.scalar(UserModel.query.filter_by(
+            user_name=user_data["user_name"]))
         print(user)
         if user and pbkdf2_sha256.verify(user_data["user_password"], user.user_password):
             access_token = create_access_token(identity=user.user_id)
@@ -42,6 +43,8 @@ class UsersManagerORM:
                 400, message="Cannot login: wrong user name or password!"
             )
 
+
+class UsersManagerORM:
     def get_users(self):
         return UserModel.query.all()
 

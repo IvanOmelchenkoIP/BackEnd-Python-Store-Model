@@ -13,7 +13,7 @@ class CategoriesManagerORM:
             db.session.commit()
         except IntegrityError:
             abort(
-                400, message="There was an error creating new  (category may already exist)!"
+                400, message="There was an error creating new (category may already exist)!"
             )
         return category
 

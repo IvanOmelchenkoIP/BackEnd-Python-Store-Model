@@ -4,8 +4,8 @@ from flask_smorest import Blueprint
 
 from backend.views.schemas.schemas import CurrencySchema
 
-from backend.data.managers.storages.managers import currencies_storage
-from backend.data.managers.models.managers import currencies_orm
+#from backend.data.managers.storages.managers import currencies_manager
+from backend.data.managers.models.managers import currencies_manager
 
 blp = Blueprint(
     "currency", __name__, description="Blueprint for operations on currencies"
@@ -17,23 +17,19 @@ class Currency(MethodView):
     @blp.response(200, CurrencySchema)
     @jwt_required()
     def get(self, currency_id):
-        #currency = currencies_storage.get_currency_by_id(currency_id)
-        currency = currencies_orm.get_currency_by_id(currency_id)
+        currency = currencies_manager.get_currency_by_id(currency_id)
         return currency
 
 
 @blp.route("/currency")
-#@jwt_required()
 class Currency(MethodView):
     @blp.arguments(CurrencySchema)
     @blp.response(200, CurrencySchema)
     def post(self, currency_data):
-        #currency = currencies_storage.add(currency_data)
-        currency = currencies_orm.add(currency_data)
+        currency = currencies_manager.add(currency_data)
         return currency
 
     @blp.response(200, CurrencySchema(many=True))
     def get(self):
-        #currencies = currencies_storage.get_currencies()
-        currencies = currencies_orm.get_currencies()
+        currencies = currencies_manager.get_currencies()
         return currencies

@@ -1,14 +1,14 @@
-from backend.managers.models.currencies import CurrenciesManagerORM
-from backend.managers.models.categories import CategoriesManagerORM
-from backend.managers.models.users import UsersManagerORM, LoginORM
-from backend.managers.models.records import RecordsManagerORM
+from backend.data.managers.models.currencies import CurrenciesManagerORM
+from backend.data.managers.models.categories import CategoriesManagerORM
+from backend.data.managers.models.users import UsersManagerORM, LoginManagerORM
+from backend.data.managers.models.records import RecordsManagerORM
 
-currencies_orm = CurrenciesManagerORM()
+currencies_manager = CurrenciesManagerORM()
 
-categories_orm = CategoriesManagerORM()
+categories_manager = CategoriesManagerORM()
 
-login_orm = LoginORM()
+login_manager = LoginManagerORM()
 
-users_orm = UsersManagerORM()
+users_manager = UsersManagerORM()
 
-records_orm = RecordsManagerORM()
+records_manager = RecordsManagerORM()

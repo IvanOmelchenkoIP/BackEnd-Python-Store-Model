@@ -7,7 +7,7 @@ from backend.data.db.storages.db import users, currencies
 from backend.utils.utils import contains
 
 
-class LoginStorage:
+class LoginManagerStorage:
     def register(self, user_data):
         if contains(users.get_users(), "user_name", user_data["user_name"]):
             abort(400, message="User with that name already exists!")

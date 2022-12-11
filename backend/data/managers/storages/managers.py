@@ -1,12 +1,14 @@
-from backend.managers.storages.currencies import CurrenciesManagerStorage
-from backend.managers.storages.categories import CategoriesManagerStorage
-from backend.managers.storages.users import UsersManagerStorage
-from backend.managers.storages.records import RecordsManagerStorage
+from backend.data.managers.storages.currencies import CurrenciesManagerStorage
+from backend.data.managers.storages.categories import CategoriesManagerStorage
+from backend.data.managers.storages.users import UsersManagerStorage, LoginManagerStorage
+from backend.data.managers.storages.records import RecordsManagerStorage
 
-currencies_storage = CurrenciesManagerStorage()
+currencies_manager = CurrenciesManagerStorage()
 
-categories_storage = CategoriesManagerStorage()
+categories_manager = CategoriesManagerStorage()
 
-users_storage = UsersManagerStorage()
+login_manager = LoginManagerStorage()
 
-records_storage = RecordsManagerStorage()
+users_manager = UsersManagerStorage()
+
+records_manager = RecordsManagerStorage()

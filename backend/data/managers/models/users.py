@@ -9,7 +9,7 @@ from backend.data.db.models.users import UserModel
 from backend.data.db.models.currencies import CurrencyModel
 
 
-class LoginORM:
+class LoginManagerORM:
     def register(self, user_data):
         if not db.session.scalar(
             CurrencyModel.query.filter_by(

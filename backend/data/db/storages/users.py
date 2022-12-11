@@ -10,9 +10,7 @@ class UsersStorage:
     def add(self, user_data):
         user = {
             "user_id": uuid.uuid4().int,
-            "user_name": user_data["user_name"],
-            "user_currency": user_data["user_currency"],
-            "user_password": user_data["user_password"]
+            **user_data
         }
         self.users.append(user)
         return user

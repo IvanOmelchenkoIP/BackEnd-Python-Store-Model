@@ -2,7 +2,7 @@ from flask.views import MethodView
 from flask_jwt_extended import jwt_required
 from flask_smorest import Blueprint
 
-from backend.views.schemas.schemas import CategorySchema
+from backend.endpoints.schemas.schemas import CategorySchema
 
 #from backend.data.managers.storages.managers import categories_manager
 from backend.data.managers.models.managers import categories_manager

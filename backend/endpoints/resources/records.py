@@ -2,7 +2,7 @@ from flask.views import MethodView
 from flask_jwt_extended import jwt_required
 from flask_smorest import Blueprint
 
-from backend.views.schemas.schemas import RecordSchema, RecordRequestSchema
+from backend.endpoints.schemas.schemas import RecordSchema, RecordRequestSchema
 
 #from backend.data.managers.storages.managers import records_manager
 from backend.data.managers.models.managers import records_manager

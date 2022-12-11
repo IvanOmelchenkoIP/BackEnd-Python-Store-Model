@@ -8,10 +8,10 @@ from flask_smorest import Api
 from backend.data.db.models.db import db
 from backend import app
 
-from backend.views.resources.currencies import blp as CurrencyBlueprint
-from backend.views.resources.users import blp as UsersBlueprint
-from backend.views.resources.categories import blp as CategoriesBlueprint
-from backend.views.resources.records import blp as RecordsBlueprint
+from backend.endpoints.resources.currencies import blp as CurrencyBlueprint
+from backend.endpoints.resources.users import blp as UsersBlueprint
+from backend.endpoints.resources.categories import blp as CategoriesBlueprint
+from backend.endpoints.resources.records import blp as RecordsBlueprint
 
 app.config["PROPAGATE_EXCEPTIONS"] = True
 app.config["API_TITLE"] = "Backend Labs"

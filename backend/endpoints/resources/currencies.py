@@ -2,7 +2,7 @@ from flask.views import MethodView
 from flask_jwt_extended import jwt_required
 from flask_smorest import Blueprint
 
-from backend.views.schemas.schemas import CurrencySchema
+from backend.endpoints.schemas.schemas import CurrencySchema
 
 #from backend.data.managers.storages.managers import currencies_manager
 from backend.data.managers.models.managers import currencies_manager

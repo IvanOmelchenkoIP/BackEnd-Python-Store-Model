@@ -1,7 +1,7 @@
-from backend.storages.currencies import CurrenciesStorage
-from backend.storages.users import UsersStorage
-from backend.storages.categories import CategoriesStorage
-from backend.storages.records import RecordsStorage
+from backend.data.db.storages.currencies import CurrenciesStorage
+from backend.data.db.storages.users import UsersStorage
+from backend.data.db.storages.categories import CategoriesStorage
+from backend.data.db.storages.records import RecordsStorage
 
 currencies = CurrenciesStorage()
 

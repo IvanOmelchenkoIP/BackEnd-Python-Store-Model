@@ -4,8 +4,8 @@ from flask_smorest import Blueprint
 
 from backend.endpoints.schemas.schemas import CategorySchema
 
-#from backend.data.managers.storages.managers import categories_manager
-from backend.data.managers.models.managers import categories_manager
+from backend.data.managers.storages.managers import categories_manager
+#from backend.data.managers.models.managers import categories_manager
 
 blp = Blueprint(
     "category", __name__, description="Blueprint for operations on categories"

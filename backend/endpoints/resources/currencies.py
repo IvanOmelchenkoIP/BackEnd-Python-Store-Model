@@ -4,8 +4,8 @@ from flask_smorest import Blueprint
 
 from backend.endpoints.schemas.schemas import CurrencySchema
 
-#from backend.data.managers.storages.managers import currencies_manager
-from backend.data.managers.models.managers import currencies_manager
+from backend.data.managers.storages.managers import currencies_manager
+#from backend.data.managers.models.managers import currencies_manager
 
 blp = Blueprint(
     "currency", __name__, description="Blueprint for operations on currencies"

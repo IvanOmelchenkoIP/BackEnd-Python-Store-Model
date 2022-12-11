@@ -32,7 +32,8 @@ class UsersManagerORM:
         return user
 
     def login(self, user_data):
-        user = UserModel.query.filter_by(user_name=user_data["user_name"])
+        user = db.session.scalar(UserModel.query.filter_by(user_name=user_data["user_name"]))
+        print(user)
         if user and pbkdf2_sha256.verify(user_data["user_password"], user.user_password):
             access_token = create_access_token(identity=user.user_id)
             return jsonify({"user_id": user.user_id, "access_token": access_token})

@@ -13,9 +13,9 @@ blp = Blueprint(
 
 
 @blp.route("/category/<string:category_id>")
-@jwt_required()
 class Category(MethodView):
     @blp.response(200, CategorySchema)
+    @jwt_required()
     def get(self, category_id):
         #category = categories_storage.get_category_by_id(category_id)
         category = categories_orm.get_category_by_id(category_id)
@@ -23,16 +23,17 @@ class Category(MethodView):
 
 
 @blp.route("/category")
-@jwt_required()
 class Categories(MethodView):
     @blp.arguments(CategorySchema)
     @blp.response(200, CategorySchema)
+    @jwt_required()
     def post(self, category_data):
         #category = categories_storage.add(category_data)
         category = categories_orm.add(category_data)
         return category
 
     @blp.response(200, CategorySchema(many=True))
+    @jwt_required()
     def get(self):
         #categories = categories_storage.get_categories()
         categories = categories_orm.get_categories()

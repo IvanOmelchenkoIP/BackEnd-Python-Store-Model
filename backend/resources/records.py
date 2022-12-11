@@ -13,9 +13,9 @@ blp = Blueprint(
 
 
 @blp.route("/record/<string:record_id>")
-@jwt_required()
 class Record(MethodView):
     @blp.response(200, RecordSchema)
+    @jwt_required()
     def get(self, record_id):
         #record = records_storage.get_records_by_id(record_id)
         record = records_orm.get_records_by_id(record_id)
@@ -23,10 +23,10 @@ class Record(MethodView):
 
 
 @blp.route("/record")
-@jwt_required()
 class Records(MethodView):
     @blp.arguments(RecordSchema)
     @blp.response(200, RecordSchema)
+    @jwt_required()
     def post(self, record_data):
         #record = records_storage.add(record_data)
         record = records_orm.add(record_data)

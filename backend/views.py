@@ -24,7 +24,7 @@ db.init_app(app)
 api = Api(app)
 
 jwt = JWTManager(app)
-
+jwt.init_app(app)
 
 @jwt.expired_token_loader
 def expired_token_callback(jwt_header, jwt_payload):
@@ -58,6 +58,7 @@ def missing_token_callback(error):
 
 
 with app.app_context():
+    db.drop_all()
     db.create_all()
     
 api.register_blueprint(CurrencyBlueprint)

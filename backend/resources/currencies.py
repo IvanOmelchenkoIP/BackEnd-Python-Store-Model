@@ -13,9 +13,9 @@ blp = Blueprint(
 
 
 @blp.route("/currency/<string:currency_id>")
-@jwt_required()
 class Currency(MethodView):
     @blp.response(200, CurrencySchema)
+    @jwt_required()
     def get(self, currency_id):
         #currency = currencies_storage.get_currency_by_id(currency_id)
         currency = currencies_orm.get_currency_by_id(currency_id)

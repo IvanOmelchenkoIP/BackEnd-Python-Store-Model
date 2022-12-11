@@ -13,9 +13,9 @@ blp = Blueprint(
 
 
 @blp.route("/user/<string:user_id>")
-@jwt_required()
 class User(MethodView):
     @blp.response(200, UserSchema)
+    @jwt_required()
     def get(self, user_id):
         #user = users_storage.get_user_by_id(user_id)
         user = users_orm.get_user_by_id(user_id)
@@ -23,6 +23,7 @@ class User(MethodView):
 
     @blp.arguments(UserCurrencySchema)
     @blp.response(200, UserSchema)
+    @jwt_required()
     def post(self, user_data, user_id):
         #user = users_storage.set_user_currency(user_data, user_id)
         user = users_orm.set_user_currency(user_data, user_id)
@@ -49,9 +50,9 @@ class UserLogin(MethodView):
 
 
 @blp.route("/users")
-@jwt_required()
-class Users(MethodView):
-    @ blp.response(200, UserSchema(many=True))
+class Users(MethodView):    
+    @blp.response(200, UserSchema(many=True))
+    @jwt_required()
     def get(self):
         #users = users_storage.get_users()
         users = users_orm.get_users()

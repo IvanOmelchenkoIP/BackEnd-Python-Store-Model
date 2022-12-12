@@ -279,7 +279,7 @@ Getting record by id:
 
 #### Laboratory Work 3 
 
-Registering a user (*required - user_name, user_currency, user_password*):
+Registering a user (*required - user_name, user_currency, user_password*, user will be always able to add a currency with id 1 as it is set in program to be Hryvnia):
 
     /register
 
@@ -303,7 +303,7 @@ Creating new record (*required - user_id, category_id, record_sum, optional - re
 
     /record
 
-Getting currencies (*optional - user may be or may not be logged in*, user will be always able to create a currency with id 1 as it is set in program to be Hryvnia):
+Getting currencies (*optional - user may be or may not be logged in*, user will be always able to get a list of currencies with initial currency with id 1 as it is set in program to be Hryvnia):
 
     /currency
 

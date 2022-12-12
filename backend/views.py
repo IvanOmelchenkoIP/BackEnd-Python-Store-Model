@@ -13,6 +13,8 @@ from backend.endpoints.resources.users import blp as UsersBlueprint
 from backend.endpoints.resources.categories import blp as CategoriesBlueprint
 from backend.endpoints.resources.records import blp as RecordsBlueprint
 
+from backend.data.initial_data.currency import set_initial_currency
+
 app.config["PROPAGATE_EXCEPTIONS"] = True
 app.config["API_TITLE"] = "Backend Labs"
 app.config["API_VERSION"] = "v1"
@@ -61,8 +63,9 @@ def missing_token_callback(error):
 
 
 with app.app_context():
-    db.drop_all()
+    #db.drop_all()
     db.create_all()
+    set_initial_currency()
 
 api.register_blueprint(CurrencyBlueprint)
 api.register_blueprint(UsersBlueprint)

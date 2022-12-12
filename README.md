@@ -1,91 +1,12 @@
 # BackEnd Laboratory Works
 
-## Laboratory Work 1 Task
+## Tasks
 
-Create REST API app about cost accounting
+You can see the task for each laboratory work in their own README.md:
 
-### Required Functionality:
-
-- Creating new user
-- Creating new category
-- Creating new record
-- Receiving categories list
-- Receiving list of records for one user
-- Receiving list of records by category of the user
-
-### Data Structure:
-
-| User      |
-| --------- |
-| id        |
-| user name |
-
-| Category      |
-| ------------- |
-| id            |
-| category name |
-
-| Record           |
-| ---------------- |
-| id               |
-| user id          |
-| category id      |
-| date of creation |
-| sum              |
-
-## Laboratory Work 2 Task
-
-- Add data validation
-- Add error handling
-- Add ORM models
-- Add functionality by variant
-
-### Functionality By Variant:
-
-Group number - IP-04
-
-04 mod 3 = 1
-
-**Variant 1.** Add currency
-
-#### Currency:
-
-- Add Currency entity
-- Default currency can be added for every user
-- When creating a record, a currency can be set, but it is not mandatory
-- If a record was not set when creating a record, a default currency of a user will be used
-
-#### Resulting Data Structure Used In Solution:
-
-| Currency      |
-| ------------- |
-| id            |
-| currency name |
-
-| User        |
-| ----------- |
-| id          |
-| user name   |
-| currency id |
-
-| Category      |
-| ------------- |
-| id            |
-| category name |
-
-| Record           |
-| ---------------- |
-| id               |
-| user id          |
-| category id      |
-| date of creation |
-| sum              |
-| currency id      |
-
-## Laboratory Work 3 Task
-
-- Create registration and login endpoints
-- Protect other endpoints so that only logged in users have access to them
+[Laboratory Work 1 Task]()
+[Laboratory Work 2 Task]()
+[Laboratory Work 3 Task]()
 
 ## Local Launch
 
@@ -137,39 +58,6 @@ Launch virtual environment again (described before). Run the app:
 
     flask run –host 0.0.0.0 -p 5005
 
-### Local Launch of Lab 3
-
-The same as the previous labs, but add JWT_SECRET_KEY after setting FLASK_APP, for this:
-
-Access python console in your terminal by typing: 
-
-    python
-
-Proceed with the two following commands:
-
-    import secrets
-    secrets.SystemRandom().getRandBits(128)
-
-You should receive a result and set it to JWT_SECRET_KEY as following:
-
-*For Windows:*
-
-    set JWT_SECRET_KEY=<your key>
-
-*For Linux:*
-
-    export JWT_SECRET_KEY=<your key>
-
-After that you can launch virtual environment and an the app   
-
-#### Alternative JWT_SECRET_KEY generation
-
-Python Script in ./config-scripts can be launched to obtain JWT_SECRET_KEY:
-
-    python ./config-scripts/jwt.py 
-
-The script should print generated key into a console, which can be copied for later use
-
 ### Dockerfile
 
 To run Dockerfile use following commands:
@@ -177,165 +65,19 @@ To run Dockerfile use following commands:
     docker-compose build
     docker-compose up
 
-#### Lab3 Dockerfile
+### Launch of Laboratoy Work 3
 
-To run Dockerfile, *first generate JWT_SECRET_KEY* and *run docker-compose build as following:*
+Local and Dockerfile Launch of Lab 3 slightly differ from previous labs, as this lab requires JWT_SECRET_KEY. Additional data is describes in [Laboratory Work 3 README]() 
 
-    docker-compose build --build-arg JWT_SECRET_KEY_VALUE=<your_value>
+## Testing
 
-Then run docker-compose:
+Endpoints testing each individual lab is described is their respective README.md:
 
-    docker-compose up
+[Testing Laboratory Work 1]()
 
-### Testing
+[Testing Laboratory Work 2]()
 
-To test the program you must use [Postman](https://www.postman.com/)
-
-For Laboratory Work 3 use [Insomnia](https://insomnia.rest/)
-
-#### Laboratory Work 1
-
-Creating new user (*required - user_name*):
-
-    /newuser
-
-Creating new category (*required - category_name*):
-
-    /newcategory
-
-Creating new record (*required - user_id, category_id, record_sum*):
-
-    /newrecord
-
-Getting users (was implemented for ability to keep track of user_id of created users as they are randomly generated):
-
-    /users
-
-Getting categories:
-
-    /categories
-
-Geting records:
-
-    /records
-    /records?user_id=<value>
-    /records?user_id=<value>&category_id=<value>
-
-#### Laboratory Work 2
-
-Creating new currency (*required - currency_name*):
-
-    /currency
-
-Creating new user (*required - user_name, user_currency*):
-
-    /user
-
-Updating user default currency (*required - user_currency*):
-
-    /user/<user_id_value>
-
-Creating new category (*required - category_name*):
-
-    /category
-
-Creating new record (*required - user_id, category_id, record_sum, not mandatory - record_currency*):
-
-    /record
-
-Getting currencies:
-
-    /currency
-
-Getting currency by id:
-
-    /currency/<currency_id_value>
-
-Getting users:
-
-    /user
-
-Getting user by id:
-
-    /user/<user_id_value>
-
-Getting categories:
-
-    /category
-
-Getting category by id:
-
-    /category/<category_id_value>
-
-Geting records:
-
-    /record
-    /record?user_id=<value>
-    /record?user_id=<value>&category_id=<value>
-
-Getting record by id:
-
-    /record/<record_id_value>
-
-#### Laboratory Work 3 
-
-Registering a user (*required - user_name, user_currency, user_password*, user will be always able to add a currency with id 1 as it is set in program to be Hryvnia):
-
-    /register
-
-Logging in (*required - user_name, user_password*):
-
-    /login
-
-Creating new currency (*required - currency_name, user has to be logged in*):
-
-    /currency
-
-Updating user default currency (*required - user_currency, user has to be logged in*):
-
-    /user/<user_id_value>
-
-Creating new category (*required - category_name, user has to be logged in*):
-
-    /category
-
-Creating new record (*required - user_id, category_id, record_sum, optional - record_currency, user has to be logged in*):
-
-    /record
-
-Getting currencies (*optional - user may be or may not be logged in*, user will be always able to get a list of currencies with initial currency with id 1 as it is set in program to be Hryvnia):
-
-    /currency
-
-Getting currency by id (*user has to be logged in*):
-
-    /currency/<currency_id_value>
-
-Getting users (*user has to be logged in*):
-
-    /user
-
-Getting user by id (*user has to be logged in*):
-
-    /user/<user_id_value>
-
-Getting categories (*user has to be logged in*):
-
-    /category
-
-Getting category by id (*user has to be logged in*):
-
-    /category/<category_id_value>
-
-Geting records (*user has to be logged in*):
-
-    /record
-    /record?user_id=<value>
-    /record?user_id=<value>&category_id=<value>
-
-Getting record by id (*user has to be logged in*):
-
-    /record/<record_id_value>
+[Testing Laboratory Work 3]()
 
 ## Deployment
 

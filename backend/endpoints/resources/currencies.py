@@ -25,11 +25,13 @@ class Currency(MethodView):
 class Currency(MethodView):
     @blp.arguments(CurrencySchema)
     @blp.response(200, CurrencySchema)
+    @jwt_required()
     def post(self, currency_data):
         currency = currencies_manager.add(currency_data)
         return currency
 
     @blp.response(200, CurrencySchema(many=True))
+    @jwt_required(optional=True)
     def get(self):
         currencies = currencies_manager.get_currencies()
         return currencies

@@ -97,6 +97,12 @@ The app named backend-laboratory-works was created on Heroku and then deployed u
 
 The app was deployed on [render.com](https://render.com/) by creating a Web Service with the following parameters:
 
-![render-deploy](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/readme/render-deploy.png)
+![render-deploy](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/files/render-deploy.png)
 
 The app uses [Free Web Service](https://render.com/docs/free) program
+
+#### Laboratory Work 3
+
+Laboratory Work 3 was deployed on [render.com](https://render.com/). Link to the [Laboratory Work 3 App](https://backend-lab-3.onrender.com/)
+
+More detailed Description in [Laboratory Work 3 README](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-3/README.md)

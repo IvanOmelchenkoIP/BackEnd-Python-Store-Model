@@ -164,3 +164,23 @@ This should be done in the following modules:
 - Each module in package backend.endpoints.resources
 
 If you wish to return to ORM models, revert the changes
+
+## Deployment
+
+The app for laboratory work 3 was deployed seperately on [render.com](https://render.com/). Link to the [Laboratory Work 3 App](https://backend-lab-3.onrender.com/)
+
+### Testing
+
+Loading the page may take some time. Upon opening the home page, you should see 404 error. Upon opening get requests that are not locked by jwt, you should see a response. Otherwise, you will see jwt error. [Insomnia](https://insomnia.rest/) should be used to correctly test the app.
+
+### Process
+
+The process is the same as for previous render deployment, but JWT_SECRET_KEY was also set in the settings of the web service:
+
+- Generation of the key in python console of my device:
+
+![jwt_generation](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/files/jwt_generation.png)
+
+- Setting JWT_SECRET_KEY environment variable:
+
+![jwt_set](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/files/jwt_set.png)

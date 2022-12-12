@@ -30,7 +30,6 @@ def create_app():
     api = Api(app)
 
     with app.app_context():
-        db.drop_all()
         db.create_all()
         set_initial_currency()
 

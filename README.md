@@ -4,9 +4,9 @@
 
 You can see the task for each laboratory work in their own README.md:
 
-[Laboratory Work 1 Task]()
-[Laboratory Work 2 Task]()
-[Laboratory Work 3 Task]()
+[Laboratory Work 1 Task](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-1/README.md)
+[Laboratory Work 2 Task](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-2/README.md)
+[Laboratory Work 3 Task](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-3/README.md)
 
 ## Local Launch
 
@@ -67,17 +67,17 @@ To run Dockerfile use following commands:
 
 ### Launch of Laboratoy Work 3
 
-Local and Dockerfile Launch of Lab 3 slightly differ from previous labs, as this lab requires JWT_SECRET_KEY. Additional data is describes in [Laboratory Work 3 README]() 
+Local and Dockerfile Launch of Lab 3 slightly differ from previous labs, as this lab requires JWT_SECRET_KEY. Additional data is describes in [Laboratory Work 3 README](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-3/README.md) 
 
 ## Testing
 
 Endpoints testing each individual lab is described is their respective README.md:
 
-[Testing Laboratory Work 1]()
+[Testing Laboratory Work 1](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-1/README.md)
 
-[Testing Laboratory Work 2]()
+[Testing Laboratory Work 2](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-2/README.md)
 
-[Testing Laboratory Work 3]()
+[Testing Laboratory Work 3](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-3/README.md)
 
 ## Deployment
 

@@ -303,7 +303,7 @@ Creating new record (*required - user_id, category_id, record_sum, optional - re
 
     /record
 
-Getting currencies (*optional - being logged in*):
+Getting currencies (*optional - user may be or may not be logged in*, user will be always able to create a currency with id 1 as it is set in program to be Hryvnia):
 
     /currency
 

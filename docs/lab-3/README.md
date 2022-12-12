@@ -150,3 +150,17 @@ Geting records (*user has to be logged in*):
 Getting record by id (*user has to be logged in*):
 
     /record/<record_id_value>
+
+### Storages and ORM Models
+
+The program can work with object storages and ORM models as databases. The deployed version uses ORM models, but you can manually use test object storage. To do so, you can:
+
+- Comment each import from the module backend.data.managers.models.managers
+- Uncomment each import from the module backend.data.managers.storages.managers
+
+This should be done in the following modules:
+
+- Module backend.data.initial_data.currency
+- Each module in package backend.endpoints.resources
+
+If you wish to return to ORM models, revert the changes

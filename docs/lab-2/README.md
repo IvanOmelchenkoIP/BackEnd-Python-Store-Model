@@ -108,3 +108,14 @@ Geting records:
 Getting record by id:
 
     /record/<record_id_value>
+
+### Storages and ORM Models
+
+The program can work with object storages and ORM models as databases. The deployed version uses ORM models, but you can manually use test object storage. To do so, you can:
+
+- Commenting each manager call with _orm at the end *(example - category_orm)*
+- Uncommenting each manager call with _storage at the end calls *(example - category_storage)*. 
+
+This should be done in every module of package backend.resources
+
+If you wish to return to ORM models, revert the changes

@@ -162,11 +162,29 @@ You should receive a result and set it to JWT_SECRET_KEY as following:
 
 After that you can launch virtual environment and an the app   
 
+#### Alternative JWT_SECRET_KEY generation
+
+Python Script in ./config-scripts can be launched to obtain JWT_SECRET_KEY:
+
+    python ./config-scripts/jwt.py 
+
+The script should print generated key into a console, which can be copied for later use
+
 ### Dockerfile
 
 To run Dockerfile use following commands:
 
     docker-compose build
+    docker-compose up
+
+#### Lab3 Dockerfile
+
+To run Dockerfile, *first generate JWT_SECRET_KEY* and *run docker-compose build as following:*
+
+    docker-compose build --build-arg JWT_SECRET_KEY_VALUE=<your_value>
+
+Then run docker-compose:
+
     docker-compose up
 
 ### Testing

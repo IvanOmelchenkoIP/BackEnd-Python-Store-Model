@@ -1,86 +1,12 @@
 # BackEnd Laboratory Works
 
-## Laboratory Work 1 Task
+## Tasks
 
-Create REST API app about cost accounting
+You can see the task for each laboratory work in their own README.md:
 
-### Required Functionality:
-
-- Creating new user
-- Creating new category
-- Creating new record
-- Receiving categories list
-- Receiving list of records for one user
-- Receiving list of records by category of the user
-
-### Data Structure:
-
-| User      |
-| --------- |
-| id        |
-| user name |
-
-| Category      |
-| ------------- |
-| id            |
-| category name |
-
-| Record           |
-| ---------------- |
-| id               |
-| user id          |
-| category id      |
-| date of creation |
-| sum              |
-
-## Laboratory Work 2 Task
-
-- Add data validation
-- Add error handling
-- Add ORM models
-- Add functionality by variant
-
-### Functionality By Variant:
-
-Group number - IP-04
-
-04 mod 3 = 1
-
-**Variant 1.** Add currency
-
-#### Currency:
-
-- Add Currency entity
-- Default currency can be added for every user
-- When creating a record, a currency can be set, but it is not mandatory
-- If a record was not set when creating a record, a default currency of a user will be used
-
-#### Resulting Data Structure Used In Solution:
-
-| Currency      |
-| ------------- |
-| id            |
-| currency name |
-
-| User        |
-| ----------- |
-| id          |
-| user name   |
-| currency id |
-
-| Category      |
-| ------------- |
-| id            |
-| category name |
-
-| Record           |
-| ---------------- |
-| id               |
-| user id          |
-| category id      |
-| date of creation |
-| sum              |
-| currency id      |
+[Laboratory Work 1 Task]()
+[Laboratory Work 2 Task]()
+[Laboratory Work 3 Task]()
 
 ## Local Launch
 
@@ -139,93 +65,19 @@ To run Dockerfile use following commands:
     docker-compose build
     docker-compose up
 
-### Testing
+### Launch of Laboratoy Work 3
 
-To test the program you must use [Postman](https://www.postman.com/)
+Local and Dockerfile Launch of Lab 3 slightly differ from previous labs, as this lab requires JWT_SECRET_KEY. Additional data is describes in [Laboratory Work 3 README]() 
 
-#### Laboratory Work 1
+## Testing
 
-Creating new user (*required - user_name*):
+Endpoints testing each individual lab is described is their respective README.md:
 
-    /newuser
+[Testing Laboratory Work 1]()
 
-Creating new category (*required - category_name*):
+[Testing Laboratory Work 2]()
 
-    /newcategory
-
-Creating new record (*required - user_id, category_id, record_sum*):
-
-    /newrecord
-
-Getting users (was implemented for ability to keep track of user_id of created users as they are randomly generated):
-
-    /users
-
-Getting categories:
-
-    /categories
-
-Geting records:
-
-    /records
-    /records?user_id=<value>
-    /records?user_id=<value>&category_id=<value>
-
-#### Laboratory Work 2
-
-Creating new currency (*required - currency_name*):
-
-    /currency
-
-Creating new user (*required - user_name, user_currency*):
-
-    /user
-
-Updating user default currency (*required - user_currency*):
-
-    /user/<user_id_value>
-
-Creating new category (*required - category_name*):
-
-    /category
-
-Creating new record (*required - user_id, category_id, record_sum, not mandatory - record_currency*):
-
-    /record
-
-Getting currencies:
-
-    /currency
-
-Getting currency by id:
-
-    /currency/<currency_id_value>
-
-Getting users:
-
-    /user
-
-Getting user by id:
-
-    /user/<user_id_value>
-
-Getting categories:
-
-    /category
-
-Getting category by id:
-
-    /category/<category_id_value>
-
-Geting records:
-
-    /record
-    /record?user_id=<value>
-    /record?user_id=<value>&category_id=<value>
-
-Getting record by id:
-
-    /record/<record_id_value>
+[Testing Laboratory Work 3]()
 
 ## Deployment
 

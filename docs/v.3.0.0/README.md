@@ -1,4 +1,4 @@
-# BackEnd Labratory Work 3
+# BackEnd V.3.0.0
 
 ## Task
 
@@ -38,7 +38,7 @@ Unchanged from Laboratory Work 2:
 
 ## Local Launch of Lab 3
 
-Laboratory Work 3 requires JWT_SECRET_KEY so it should be generated:
+V.3.0.0 requires JWT_SECRET_KEY so it should be generated:
 
 ### Console Generation
 

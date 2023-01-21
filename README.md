@@ -1,12 +1,14 @@
-# BackEnd Laboratory Works
+# BackEnd Store Model
 
 ## Tasks
 
 You can see the task for each laboratory work in their own README.md:
 
-[Laboratory Work 1 Task](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-1/README.md)
-[Laboratory Work 2 Task](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-2/README.md)
-[Laboratory Work 3 Task](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-3/README.md)
+[V.1.0.0](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-1/README.md)
+
+[V.2.0.0](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-2/README.md)
+
+[V.3.0.0](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-3/README.md)
 
 ## Local Launch
 
@@ -73,11 +75,11 @@ Local and Dockerfile Launch of Lab 3 slightly differ from previous labs, as this
 
 Endpoints testing each individual lab is described is their respective README.md:
 
-[Testing Laboratory Work 1](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-1/README.md)
+[V 1.0.0](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/v.1.0.0/README.md)
 
-[Testing Laboratory Work 2](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-2/README.md)
+[V.2.0.0](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/v.2.0.0/README.md)
 
-[Testing Laboratory Work 3](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-3/README.md)
+[V.3.0.0](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/v.3.0.0/README.md)
 
 ## Deployment
 
@@ -101,8 +103,8 @@ The app was deployed on [render.com](https://render.com/) by creating a Web Serv
 
 The app uses [Free Web Service](https://render.com/docs/free) program
 
-#### Laboratory Work 3
+#### V.3.0.0
 
-Laboratory Work 3 was deployed on [render.com](https://render.com/). Link to the [Laboratory Work 3 App](https://backend-lab-3.onrender.com/)
+V.3.0.0 was deployed on [render.com](https://render.com/). Link to the [V.3.0.0 App](https://backend-lab-3.onrender.com/)
 
-More detailed Description in [Laboratory Work 3 README](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-3/README.md)
+More detailed Description in [V.3.0.0 README](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-3/README.md)

@@ -83,28 +83,8 @@ Endpoints testing each individual lab is described is their respective README.md
 
 ## Deployment
 
-### Heroku
-
-[App on Heroku](https://backend-laboratory-works.herokuapp.com/) - index page shows NotFound, but response will be shown upon using any of the paths described earlier
-
-#### Process
-
-The app named backend-laboratory-works was created on Heroku and then deployed using GitHub Actions (*see ./github/workflows/heroku-deploy.yml*)
-
 ### Render
 
-[App on Render](https://backend-labs.onrender.com/) - index page shows NotFound, but response will be shown upon using any of the paths described earlier
+The app is available to test by the [link](https://backend-store-model.onrender.com)
 
-#### Process
-
-The app was deployed on [render.com](https://render.com/) by creating a Web Service with the following parameters:
-
-![render-deploy](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/files/render-deploy.png)
-
-The app uses [Free Web Service](https://render.com/docs/free) program
-
-#### V.3.0.0
-
-V.3.0.0 was deployed on [render.com](https://render.com/). Link to the [V.3.0.0 App](https://backend-lab-3.onrender.com/)
-
-More detailed Description in [V.3.0.0 README](https://github.com/IvanOmelchenkoIP/BackEnd-Python-Store-Model/blob/main/docs/v.3.0.0/README.md)
+Test via instructions in v.3.0.0

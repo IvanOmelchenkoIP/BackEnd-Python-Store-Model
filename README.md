@@ -4,11 +4,11 @@
 
 You can see the task for each laboratory work in their own README.md:
 
-[V.1.0.0](https://github.com/IvanOmelchenkoIP/BackEnd-Python-Store-Model/blob/main/docs/lab-1/README.md)
+[V.1.0.0](https://github.com/IvanOmelchenkoIP/BackEnd-Python-Store-Model/blob/main/docs/v.1.0.0/README.md)
 
-[V.2.0.0](https://github.com/IvanOmelchenkoIP/BackEnd-Python-Store-Model/blob/main/docs/lab-2/README.md)
+[V.2.0.0](https://github.com/IvanOmelchenkoIP/BackEnd-Python-Store-Model/blob/main/docs/v.2.0.0/README.md)
 
-[V.3.0.0](https://github.com/IvanOmelchenkoIP/BackEnd-Python-Store-Model/blob/main/docs/lab-3/README.md)
+[V.3.0.0](https://github.com/IvanOmelchenkoIP/BackEnd-Python-Store-Model/blob/main/docs/v.3.0.0/README.md)
 
 ## Local Launch
 
@@ -67,9 +67,9 @@ To run Dockerfile use following commands:
     docker-compose build
     docker-compose up
 
-### Launch of Laboratoy Work 3
+### Launch of V.3.0.0
 
-Local and Dockerfile Launch of Lab 3 slightly differ from previous labs, as this lab requires JWT_SECRET_KEY. Additional data is describes in [Laboratory Work 3 README](https://github.com/IvanOmelchenkoIP/BackEnd-Labs/blob/main/docs/lab-3/README.md) 
+Local and Dockerfile V.3.0.0 slightly differ from previous labs, as this lab requires JWT_SECRET_KEY. Additional data is describes in [V.3.0.0 README](https://github.com/IvanOmelchenkoIP/BackEnd-Python-Store-Model/blob/main/docs/v.3.0.0/README.md) 
 
 ## Testing
 
@@ -88,3 +88,5 @@ Endpoints testing each individual lab is described is their respective README.md
 The app is available to test by the [link](https://backend-store-model.onrender.com)
 
 Test via instructions in v.3.0.0
+
+[Insomnia environment](https://github.com/IvanOmelchenkoIP/BackEnd-Python-Store-Model/blob/main/resources/insomnia_json/Insomnia_2023-01-21.json)

@@ -1,0 +1,620 @@
+{
+	"info": {
+		"_postman_id": "e03bc70a-49da-4f59-bfe8-3f1e05f32819",
+		"name": "BackEnd-Python-Store-Model",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24023588"
+	},
+	"item": [
+		{
+			"name": "Omelchenko-Ivan-V.1.0.0",
+			"item": [
+				{
+					"name": "Create Category V.1.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\":\"Hobbies\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/newcategory",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"newcategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User V.1.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\":\"User-03\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/newuser",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"newuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Record V.1.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":211085797182791060506277190732086994576,\r\n    \"category_id\":147219966728211430435815555119002096987,\r\n    \"record_sum\":\"30\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/newrecord",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"newrecord"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Categories V.1.0.0",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{domain}}/categories",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Records V.1.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{domain}}/records?user_id=26081780272057854080127289704541232344&category_id=339572173647271678664303114987646669125",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"records"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "26081780272057854080127289704541232344"
+								},
+								{
+									"key": "category_id",
+									"value": "339572173647271678664303114987646669125"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users V.1.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{domain}}/users",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Omelchenko-Ivan-V.2.0.0",
+			"item": [
+				{
+					"name": "Create Category V.2.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\":\"Technology\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/category",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User V.2.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\":\"User-2\",\r\n    \"user_currency\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/user",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Currency Of User V.2.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_currency\":2\r\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/user/2",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Record V.2.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":2,\r\n    \"category_id\":2,\r\n    \"record_sum\":30.00\r\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/record",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"record"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Currency V.2.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currency_name\":\"Hryvnya\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{domain}}/currency",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"currency"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Categories V.2.0.0",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{domain}}/category",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category By Id V.2.0.0",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{domain}}/category/1",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Records V.2.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{domain}}/record?user_id=1&category_id=2",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"record"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								},
+								{
+									"key": "category_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Record By Id V.2.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{domain}}/record/1",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"record",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users V.2.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{domain}}/user",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id V.2.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{domain}}/user/1",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Currecies V.2.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{domain}}/currency",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"currency"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Currecy By Id V.2.0.0",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{domain}}/currency/1",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"currency",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
